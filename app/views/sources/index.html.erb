@@ -1,0 +1,215 @@
+
+<div id="featured">
+  <ul class="content-list">
+    <li id="featured-content-slot" class="content-item">
+      <div class="feed-tag">
+        Learn Ruby
+      </div>
+      <div class="abbreviated-featured-post-header">
+        <img src="/images/whys_poignant_guide.jpg" width="300">
+      </div>
+      <div class="abbreviated-post">
+        <h4 class="post-name">
+          <a href="/" class="internal-link view-post">
+            July Cover Revealed: Infamous 2
+          </a>
+        </h4>
+        <div class="post-summary">
+          <p>
+            Infamous 2 awaits you in our July issue, along with a hefty dose of features, previews, and reviews.
+          </p>
+        </div>
+      </div>
+      <div class="abbreviated-post-footer">
+        <a href="/" class="internal-link more-link">
+          <span></span>More
+        </a>
+      </div>
+    </li>
+    <li id="content-slot-one" class="content-item abbreviated-post">
+       <div class="feed-tag">
+          News
+        </div>
+        <div class="abbreviated-post-header">
+          <img src="/images/learn_ruby_session.jpg" height="150px">
+        </div>
+        <div class="abbreviated-post">
+           <h4 class="post-name">
+            <%= link_to  'New Job Alert:', work_items_path, :class=>"internal-link view-post" %>
+           </h4>
+           <div class="post-summary">
+             <p> Ruby On Rails Developer at Visionaire Partners (Norcross, GA) </p>
+           </div>
+       
+        </div>
+        <div class="abbreviated-post-footer">
+          <a class="internal-link more-link" href="/"><span></span>More</a>
+        </div>
+      
+    </li>
+    <li id="content-slot-two" class="content-item abbreviated-post">
+       <div class="feed-tag">
+           Conferences
+         </div>
+         <div class="abbreviated-post-header">
+           <img src="/images/euruko_logo_final.gif" height="150px">
+         </div>
+         <div class="abbreviated-post">
+            <h4 class="post-name">
+
+                                         <a href="http://bit.ly/ar3Lln" class="internal-link view-post">Euruko 2010</a>
+
+                             </h4>
+                             <div class="post-summary">
+                                                 <p> Euruko 2010 wrap up </p>
+                                             </div>
+
+         </div>
+         <div class="abbreviated-post-footer">
+           <a class="internal-link more-link" href="/"><span></span>More</a>
+         </div>
+    </li>
+    <li id="content-slot-three" class="content-item abbreviated-post">
+       <div class="feed-tag">
+          Meetup
+        </div>
+        <div class="abbreviated-post-header">
+         </div>
+         <div class="abbreviated-post">
+            
+         </div>
+         <div class="abbreviated-post-footer">
+           <a class="internal-link more-link" href="/"><span></span>More</a>
+         </div>
+    </li>
+    <li id="content-slot-four" class="content-item abbreviated-post">
+       <div class="feed-tag">
+          Show
+        </div>
+        <div class="abbreviated-post-header">
+         </div>
+         <div class="abbreviated-post">
+            
+         </div>
+         <div class="abbreviated-post-footer">
+           <a class="internal-link more-link" href="/"><span></span>More</a>
+         </div>
+    </li>
+
+  
+  </ul>
+
+
+</div>
+
+<div class="content-scroll">
+  <div id="left-content" class="content-floater ">
+    <div class="tabbed-region">
+      <span class="tip"></span>
+      <div class="tabs">
+        <a class="active" href="/feed">
+          <div class="content-fragment-header">
+            The Feed
+          </div>
+        </a>
+         <%= link_to '<div class="content-fragment-header">Blogs</div>'.html_safe, posts_url, :id => "blogs", :class => "fragment" %>
+        
+        <a href="#fragment-6931" class=""><div class="content-fragment-header">Community</div></a>
+        <a href="#fragment-6932" class=""><div class="content-fragment-header">Guides</div></a>
+        <div class="rss-feed"><a href="/feeds.rss" title="Click to view The Feed RSS"><em></em></a></div>
+      </div>
+    </div>
+    <div class="content-fragment">
+      <div class="gi-post-list">
+        <ul class="content-list">
+          <% @feed_posts.each do |fp| %>
+          
+            <li class="content-item">
+              <div class="abbreviated-post-header">
+                <%= link_to fp.primary_image_url ? image_tag(fp.primary_image_url, :style => "max-width: 200px;", :src => "#{  }") : '',  fp %>
+                </div>
+                <div class="abbreviated-post">
+                  <h4 class="post-name">
+                    <%= link_to fp.title, fp %>
+                  </h4>
+                  <div class="post-meta">
+                    <div class="post-author">
+                      <span class="label">by 
+                         <%= link_to fp.resourceful.author, fp %>
+                       </span>
+                          <span class="label">on
+                            <%= fp.resourceful.published %>
+                          </span>
+                      </div>
+                      <div class="post-views">
+                            <span class="value">
+                                160                
+                            </span>
+                            <span class="label">
+                                Views
+                            </span>                
+                        </div>
+                    </div>
+                    <div class="post-summary">
+                        <%= fp.resourceful.summary.html_safe %>
+                       
+                          
+                  </div>
+                   <span>...<%= link_to 'More', fp %></span>
+              </div>
+            </li>          
+          <% end %>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidebar content-floater ">
+    <div class="content-fragment-content">
+      <p>
+        <%= link_to  @video_feature ? image_tag(@video_feature.primary_image_url) : '', videos_url, :style => "width: 300px;" %>
+
+      </p>
+      <div class="CommonPollArea">
+        <% Inquiry.all(:conditions => {:audience => "all"}).each do |inq| %>
+          <h4 class="CommonPollQuestion">How Did E3 2010 Compare To E3 2009?</h4>
+          <div class="CommonPollContent"><div class="CommonPollDescription"></div>
+          <div style="display: block;" class="CommonPollSwitchedContent" id="PollResultsArea">
+            <ul class="CommonPollAnswerList">
+              <li>
+                <div class="CommonPollAnswer">It was better! (71.9%)</div>
+                <div class="CommonPollResultGraph">
+                  <img height="19" src="/images/poll_a_start.gif">
+                  <img width="179" height="19" src="/images/poll_a_mid.gif">
+                  <img height="19" src="/images/poll_a_end.gif">
+                  <img width="70" height="19" src="/images/poll_none_mid.gif">
+                  <img height="19" src="/images/poll_none_end.gif">
+                </div>
+              </li>
+              <li>
+                <div class="CommonPollAnswer">It was worse... (28.1%)</div>
+                <div class="CommonPollResultGraph">
+                  <img height="19" width="1" src="/images/poll_a_start.gif">
+                  <img width="70" height="19" src="/images/poll_a_mid.gif">
+                  <img height="19" src="/images/poll_a_end.gif">
+                  <img width="179" height="19" src="/images/poll_none_mid.gif">
+                  <img height="19" src="/images/poll_none_end.gif">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      <% end %>
+      <div class="CommonPollFooter">
+        <ul class="CommonPollFooterList">
+          <li>Total Votes: 153</li>
+        </ul>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+
+        </div>
+  </div>
+</div>

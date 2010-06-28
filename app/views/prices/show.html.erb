@@ -1,0 +1,45 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @price.source_id %>
+</p>
+
+<p>
+  <b>Rate name:</b>
+  <%= @price.rate_name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @price.price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @price.description %>
+</p>
+
+<p>
+  <b>Set rate:</b>
+  <%= @price.set_rate %>
+</p>
+
+<p>
+  <b>Group rate:</b>
+  <%= @price.group_rate %>
+</p>
+
+<p>
+  <b>Rate start:</b>
+  <%= @price.rate_start %>
+</p>
+
+<p>
+  <b>Rate end:</b>
+  <%= @price.rate_end %>
+</p>
+
+
+<%= link_to 'Edit', edit_price_path(@price) %> |
+<%= link_to 'Back', prices_path %>

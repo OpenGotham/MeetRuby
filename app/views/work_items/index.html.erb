@@ -1,0 +1,37 @@
+<div id="inner-content" class="content-scroll">
+  <h1>Listing work_items</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimated hours</th>
+      <th>Low rate</th>
+      <th>High rate</th>
+      <th>Rate scale</th>
+      <th>Work license</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @work_items.each do |work_item| %>
+    <tr>
+      <td><%= work_item.title %></td>
+      <td><%= work_item.description %></td>
+      <td><%= work_item.estimated_hours %></td>
+      <td><%= work_item.low_rate %></td>
+      <td><%= work_item.high_rate %></td>
+      <td><%= work_item.rate_scale %></td>
+      <td><%= work_item.work_license %></td>
+      <td><%= link_to 'Show', work_item %></td>
+      <td><%= link_to 'Edit', edit_work_item_path(work_item) %></td>
+      <td><%= link_to 'Destroy', work_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+<br />
+
+<%= link_to 'New Work item', new_work_item_path %>
+</div>

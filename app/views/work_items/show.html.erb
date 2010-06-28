@@ -1,0 +1,40 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @work_item.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @work_item.description %>
+</p>
+
+<p>
+  <b>Estimated hours:</b>
+  <%= @work_item.estimated_hours %>
+</p>
+
+<p>
+  <b>Low rate:</b>
+  <%= @work_item.low_rate %>
+</p>
+
+<p>
+  <b>High rate:</b>
+  <%= @work_item.high_rate %>
+</p>
+
+<p>
+  <b>Rate scale:</b>
+  <%= @work_item.rate_scale %>
+</p>
+
+<p>
+  <b>Work license:</b>
+  <%= @work_item.work_license %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_item_path(@work_item) %> |
+<%= link_to 'Back', work_items_path %>

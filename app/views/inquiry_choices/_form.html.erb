@@ -1,0 +1,24 @@
+<%= form_for(@inquiry_choice) do |f| %>
+  <% if @inquiry_choice.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@inquiry_choice.errors.count, "error") %> prohibited this inquiry_choice from being saved:</h2>
+    <ul>
+    <% @inquiry_choice.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :option_copy %><br />
+    <%= f.text_field :option_copy %>
+  </div>
+  <div class="field">
+    <%= f.label :option_value %><br />
+    <%= f.text_field :option_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

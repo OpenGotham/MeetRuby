@@ -1,0 +1,133 @@
+
+    <div id="inner-content" class="content-scroll">
+  <%# if featured_post = doc.css('entry').first %>
+      <table cellspacing="0" cellpadding="0" id="summary_content_table">
+        <tbody>
+           
+          <tr>
+            
+            <td id="bookinfo">
+              <div class="booktitle">
+                <h1>Agile retrospectives: </h1>
+                <span class="subtitle">making good teams great</span>
+              </div>
+              <div class="bookcover">
+                <%#= image_tag(featured_post.urls.first %>
+                <%#= image_tag(featured_post.urls.first.gsub('zoom=5','zoom=1') %>
+                <img border="1" width="128" id="summary-frontcover" title="Front Cover" alt="Front Cover" src="http://bks0.books.google.com/books?id=x2_OAAAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;sig=ACfU3U1Cpkvf_DhMMh3llyo0Tb0CTvSd7Q" name="summary-frontcover">
+              </div>
+              <div class="bookinfo_sectionwrap">
+                <div>
+                  <%# featured_post.authors.each do |author| %>
+                   <a class="secondary" href="http://www.google.com/search?tbs=bks:1&amp;tbo=p&amp;q=+inauthor:%22Esther+Derby%22">Esther Derby</a>
+                  <!-- <a class="secondary" href="http://www.google.com/search?tbs=bks:1&amp;tbo=p&amp;q=+inauthor:<%#= author %>">Esther Derby</a>, --> 
+                  <%# end %>
+                </div>
+                <div>
+                  Pragmatic Bookshelf, 2006 - 170 pages
+                </div>
+              </div>
+              <div id="synopsis">
+                <div id="synopsis-window" style="height: 5.2em; overflow: hidden;">
+                  <div class="sa" dir="ltr" style="line-height: 1.3em;" id="synopsistext">
+                    See how to mine the experience of your software development team "continually" throughout the life of the project. The tools and recipes in this book will help you uncover and solve hidden (and not-so-hidden) problems with your technology, your methodology, and those difficult "people" issues on your team.
+                    <p>
+                      Project retrospectives help teams examine what went right and what went wrong on a project. But traditionally, retrospectives (also known as "post-mortems") are only helpful at the end of the project--too late to help. You need agile retrospectives that are iterative and incremental. You need to accurately find and fix problems to help the team today.
+                    </p>
+                    <p>
+                      Now, Derby and Larsen show you the tools, tricks, and tips you need to fix the problems you face on a software development project on an on-going basis. You'll see how to architect retrospectives in general, how to design them specifically for your team and organization, how to run them effectively, how to make the needed changes, and how to scale these techniques up. You'll learn how to deal with problems, and implement solutions effectively throughout the project--not just at the end.
+                    </p>
+                    <p>
+                      With regular tune-ups, your team will hum like a precise, world-class orchestra.
+                    </p>
+                  </div>
+                </div><a class="secondary" style="cursor: pointer; padding-top: 6px;">More »</a>
+              </div>
+              <div class="search_box_wrapper"></div>
+            </td>
+          </tr>
+          <%# end %>
+        </tbody>
+      </table>
+      
+      
+      <div class="book_result_list_container">
+  
+       
+        <a class="prev browse left"></a>
+
+        <!-- root element for scrollable -->
+        <div class="scrollable">   
+
+           <!-- root element for the items -->
+           <div class="items">
+               <%# @feed_content.each_with_index do |fc, fc_i| %>
+              <!-- 1-4 -->
+              <%#= fc_i.modulo(4) == 0 ? "<div>".html_safe : '' %>
+              <div class="common_feature">
+                <div>
+                  <a class="slider-link goog-inline-block" style="height: 160px;" href="http://books.google.com/books?id=nCZ2PwAACAAJ&amp;dq=isbn%3A9780977616640&amp;source=gbs_slider_thumb"><img src="http://bks0.books.google.com/books?id=ANP-fUv3WTYC&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;sig=ACfU3U2owjTDFKgLxhTLshhVVLk0_Icr7Q&amp;source=gbs_gdata" style="height: 160px;">
+                  </a>
+                  <div class="slider-annotation">
+                    <div style="width: 114px;">
+                      <a href="http://books.google.com/books?id=nCZ2PwAACAAJ&amp;dq=isbn:9780977616640&amp;source=gbs_book_similarbooks">Agile Estimating and Planning</a>
+                      <div> Cohn </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="common_feature">
+                    
+                    
+                    
+                   </div>
+                   <div class="common_feature"></div>
+                   <div class="common_feature"></div>
+            <%#= fc_i.modulo(4) == 0 ? "</div>".html_safe : '' %>
+             
+              <!-- 4-8 -->
+            <div>
+                   <div class="common_feature"></div>
+                   <div class="common_feature"></div>
+                   <div class="common_feature"></div>
+                   <div class="common_feature"></div>
+            </div>
+          </div>
+        </div>
+        <!-- "next page" action -->
+        <a class="next browse right"></a>
+      
+      </div>
+      
+      <span>Book Search</span>
+      <div id="book-search-bar">
+        <fieldset classs="field-list">
+          <ul class="field-list">
+            <li class="field-item">
+              <span class="field-item-input"><input type="text" id="book-search-field" class="search empty"></span>
+            </li>
+            <li class="field-item">
+              <input type="button" id="search-bar-holmes-button" class="search-options" value="Book Search">
+            </li>
+          </ul>
+        </fieldset>
+      </div>
+      <h1>
+        New book
+      </h1><%= render 'form' %>
+      <%= link_to 'Back', books_path %>
+    </div>
+    
+    <script language="Javascript" type="text/javascript">
+
+    booker = function(options) {
+      // POPULATE THE bookinfo results section with this
+
+    }
+    $('#book-search-field').keyup(function(event) {
+    if (event.keyCode == '13') {
+       alert('submit fools');
+     }
+    });
+    </script>

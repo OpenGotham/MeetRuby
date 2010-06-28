@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meetruby</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag "jquerytools", "application" %>
+  	<%= yield(:head) %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="top">
+    <div id="header" class="container">
+     <a href="/"><%= image_tag("meet_ruby_sm.png") %></a>
+     <div class="user-welcome">
+     <ul class="navigation-list">
+       <li class="navigation-item">
+         <%= link_to 'Join', new_user_path, :class => "user-auth-link" %>
+       </li>
+       <li class="navigation-item">
+         <%= link_to 'Sign in', login_path, :class => "user-auth-link" %>
+         
+      </li>
+       <li class="navigation-item"><a href="/about" id="about-link" class="user-aid-link"><span></span>About</a> </li>
+      </ul>
+      </div>
+      <div id="news-feed" class="header-fragment activity-stream-widget">
+        <div class="title-activity-stream" style="display: block;">
+            <div class="jcarousel-container jcarousel-container-horizontal" style="display: block;">
+                <div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;" disabled="false"></div>
+                <div class="jcarousel-next jcarousel-next-horizontal" style="display: block;" disabled="false"></div>
+                <div class="jcarousel-clip jcarousel-clip-horizontal">
+                  <ul class="jcarousel-list jcarousel-list-horizontal" style="width: 5610px; left: -1050px;">
+                      <li class="content-item jcarousel-item jcarousel-item-horizontal jcarousel-item-0 jcarousel-item-0-horizontal" jcarouselindex="0">
+                      </li>
+
+                      <li class="content-item jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1">
+                      </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="content-list-footer"></div>
+        </div>
+        
+        <div id="search-bar">
+          <fieldset classs="field-list">
+          <ul class="field-list">
+                      <li class="field-item">
+                          <span class="field-item-input">
+                              <input type="text" id="header-search-field" value="search" class="search empty">
+                          </span>
+                          	</li>
+                          <li class="field-item">
+                          <input type="button" id="search-bar-holmes-button" class="search-options" value="Search">
+          						</li>
+                </ul>
+          </fieldset>  
+        </div>
+        
+      </div>
+
+      
+  
+  
+  
+  
+
+
+  </div>
+  <div id="main_container" class="container">
+    
+    <div class="content">
+    <div class="nav-bar">
+      <div class="nav-bar-header"></div>
+      <div class="nav-bar-content">
+
+        <ul class="navigation-list">
+                <li class="inprint navigation-item">
+                    <div class="active">
+                      <a href="/resources">Resources</a>
+                    </div>
+                </li>
+                <li class="local navigation-item"><div class="active"><a href="/">Local 151</a></div></li>
+                <li class="events navigation-item"><div class="active"><a href="/events">Events</a></div></li>
+                <li class="work navigation-item"><div class="active"><a href="/work"> Work</a></div></li>
+                <li class="certify navigation-item"><div class="active"><a href="/">Certification</a></div></li>
+            </ul>
+      </div>
+      <div class="nav-bar-footer"></div>
+    </div>
+    <%= yield %>
+    </div>
+  </div>
+  
+<div id="bottom">
+  <a name="p0"></a>
+  <div id="footer">
+    <%= raw oauth_register_button :value => "Register with meetup" %>
+    <%= raw oauth_login_button :value => "Login with meetup" %>
+  </div>
+</div>
+</body>
+</html>

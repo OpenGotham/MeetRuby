@@ -1,0 +1,48 @@
+<%= form_for(@price) do |f| %>
+  <% if @price.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@price.errors.count, "error") %> prohibited this price from being saved:</h2>
+    <ul>
+    <% @price.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source_id %><br />
+    <%= f.text_field :source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rate_name %><br />
+    <%= f.text_field :rate_name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :set_rate %><br />
+    <%= f.check_box :set_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :group_rate %><br />
+    <%= f.text_field :group_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :rate_start %><br />
+    <%= f.datetime_select :rate_start %>
+  </div>
+  <div class="field">
+    <%= f.label :rate_end %><br />
+    <%= f.datetime_select :rate_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

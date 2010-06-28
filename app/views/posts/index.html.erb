@@ -1,0 +1,25 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title.html_safe  %></td>
+    <td><%= post.author.html_safe %></td>
+    <td><%= link_to 'Show', source.resourceful %></td>
+    <td><%= link_to 'Edit', edit_source_path(source) %></td>
+    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Source', new_source_path %>

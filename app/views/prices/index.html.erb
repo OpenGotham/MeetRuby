@@ -1,0 +1,37 @@
+<h1>Listing prices</h1>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Rate name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Set rate</th>
+    <th>Group rate</th>
+    <th>Rate start</th>
+    <th>Rate end</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prices.each do |price| %>
+  <tr>
+    <td><%= price.source_id %></td>
+    <td><%= price.rate_name %></td>
+    <td><%= price.price %></td>
+    <td><%= price.description %></td>
+    <td><%= price.set_rate %></td>
+    <td><%= price.group_rate %></td>
+    <td><%= price.rate_start %></td>
+    <td><%= price.rate_end %></td>
+    <td><%= link_to 'Show', price %></td>
+    <td><%= link_to 'Edit', edit_price_path(price) %></td>
+    <td><%= link_to 'Destroy', price, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Price', new_price_path %>

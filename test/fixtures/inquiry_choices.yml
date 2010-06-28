@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  option_copy: MyString
+  option_value: MyString
+
+two:
+  option_copy: MyString
+  option_value: MyString

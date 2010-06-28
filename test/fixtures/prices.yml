@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  source_id: 1
+  rate_name: MyString
+  price: 1.5
+  description: MyText
+  set_rate: false
+  group_rate: MyString
+  rate_start: 2010-06-27 12:25:08
+  rate_end: 2010-06-27 12:25:08
+
+two:
+  source_id: 1
+  rate_name: MyString
+  price: 1.5
+  description: MyText
+  set_rate: false
+  group_rate: MyString
+  rate_start: 2010-06-27 12:25:08
+  rate_end: 2010-06-27 12:25:08

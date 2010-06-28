@@ -1,0 +1,15 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Topic:</b>
+  <%= @label.topic %>
+</p>
+
+<p>
+  <b>Ranking:</b>
+  <%= @label.ranking %>
+</p>
+
+
+<%= link_to 'Edit', edit_label_path(@label) %> |
+<%= link_to 'Back', labels_path %>

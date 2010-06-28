@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  start_date: 2010-06-23
+  end_date: 2010-06-23
+  country: MyString
+  city: MyString
+  state: MyString
+  postal_code: MyString
+
+two:
+  title: MyString
+  description: MyText
+  start_date: 2010-06-23
+  end_date: 2010-06-23
+  country: MyString
+  city: MyString
+  state: MyString
+  postal_code: MyString

@@ -1,0 +1,1036 @@
+
+html, body {
+	color:#333333;
+	font-family:"Museo 500","Trebuchet MS",Arial;
+	font-size:medium;
+	font-weight:normal;
+	text-align:left;
+	margin:0;
+}
+img {
+	border:0 none;
+}
+#header {
+	height:50px;
+	position:relative;
+	width:960px;
+}
+#header img{
+	position:absolute;
+	left:10px;
+	z-index:1;
+}
+#header div.header_content{
+}
+#top {
+	background:#181512;
+}
+.container  {
+	margin:0 auto;
+}
+.clearfix, .container {
+	display:block;
+}
+.clearfix:after {
+	clear:both;
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+}
+#bottom {
+	clear: both;
+	background:#181512;
+	width:100%;
+}
+
+.content {
+	clear:both;
+	width:960px;
+	margin:0 auto;
+	background:url("/images/shadow.png") repeat-y scroll left top transparent;
+	padding:0 7px;
+}
+.activity-stream-widget {
+	position:absolute;
+	right:300px;
+	height:40px;
+	padding:0 20px;
+	background:#fff;
+	display:none;
+}
+#book-search-bar {
+	background:none repeat scroll 0 0 #222222;
+	height:29px;
+	right:10px;
+	top:6px;
+	width:240px;
+}
+
+
+.book_result_list_container{
+	display:inline-block;
+}
+
+#book-search-bar fieldset{
+	border:medium none;
+	margin:0;
+	padding:0;
+}
+#book-search-bar ul.field-list {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	width:250px;
+}
+#book-search-bar .field-item {
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+}
+#book-search-bar .field-item-input input {
+	background:none repeat scroll 0 0 #FFFFFF;
+	color:#727070;
+	font-size:12px;
+	font-weight:bold;
+	margin:0;
+	padding:4px 10px;
+	width:194px;
+}
+#book-search-bar-holmes-button {
+	background-image:url("/images/header-search-button.png");
+	font-size:0;
+	height:28px;
+	line-height:0;
+	padding:0;
+	text-indent:-9999px;
+	width:26px;
+}
+
+.vertical_module_list_row  {
+position:relative;
+}
+.bookcover {
+float:left;
+margin-right:12px;
+}
+
+#synopsis  {
+padding-left:141px;
+}
+
+
+#search-bar {
+	background:none repeat scroll 0 0 #222222;
+	height:29px;
+	position:absolute;
+	right:10px;
+	top:6px;
+	width:240px;
+	display:none;
+}
+
+
+
+
+
+
+#search-bar fieldset{
+	border:medium none;
+	margin:0;
+	padding:0;
+}
+#search-bar ul.field-list {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	width:250px;
+}
+#search-bar .field-item {
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+}
+#search-bar .field-item-input input {
+	background:none repeat scroll 0 0 #FFFFFF;
+	color:#727070;
+	font-size:12px;
+	font-weight:bold;
+	margin:0;
+	padding:4px 10px;
+	width:194px;
+}
+#search-bar-holmes-button {
+	background-image:url("/images/header-search-button.png");
+	font-size:0;
+	height:28px;
+	line-height:0;
+	padding:0;
+	text-indent:-9999px;
+	width:26px;
+}
+.jcarousel-container-horizontal {
+	width:250px;
+}
+.jcarousel-container  {
+	position:relative;	
+}
+.jcarousel-prev-horizontal  {
+	background-position:left top;
+	left:-14px;
+	right:auto;
+}
+.jcarousel-prev-horizontal  {
+	background:url("/images/jcarousel-buttons.png") no-repeat scroll 0px top transparent;
+	cursor:pointer;
+	height:12px;
+	position:absolute;
+	right:-14px;
+	top:14px;
+	width:6px;
+}
+.jcarousel-next-horizontal {
+	background:url("/images/jcarousel-buttons.png") no-repeat scroll -6px top transparent;
+	cursor:pointer;
+	height:12px;
+	position:absolute;
+	right:-14px;
+	top:14px;
+	width:6px;
+}
+.jcarousel-next {
+	display:none;
+	z-index:3;
+}
+
+.jcarousel-clip {
+	margin:0;
+	overflow:hidden;
+	padding:0;
+	position:relative;
+	z-index:2;
+}
+.jcarousel-clip-horizontal  {
+	height:36px;
+	width:250px;
+}
+.jcarousel-list  {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	height:36px;
+}
+.jcarousel-list .content-item {
+	display:block;
+	float:left;
+	height:382px;
+	margin:0 4px 0 0;
+	padding:0;
+	width:250px;
+	border:none;
+}
+#header_info .jcarousel-list li{
+	float:left;
+	height:36px;
+	width:250px;
+	background:DarkGray;
+
+}
+.jcarousel-container pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+
+
+.activity-stream-widget .content-list-header {
+	color:#333333;
+	font:bold 10px/12px Arial;	
+	margin-bottom:5px;
+	text-transform:lowercase;
+}
+#featured {
+	border-color:#E0E2DA;
+	border-style:none none solid;
+	border-width:0 0 10px;
+	height:395px;	
+	margin:20px 0 10px;
+	padding:2px 0;
+}
+.section {
+	min-height:75px;
+}
+.content-scroll {
+	clear:both;
+	position:relative;
+	display:inline-block;
+}
+#footer {
+	margin:0 auto;
+	position:relative;
+	width:950px;
+	padding:10px;
+}
+#header_info {
+	color:LightBlue;
+}
+.nav-bar  {
+	height:40px;
+	position:relative;
+}
+.nav-bar .nav-bar-header  {
+	background:url("/images/overlaps.png") no-repeat scroll left top transparent;
+	bottom:-7px;
+	display:block;
+	font-size:1px;
+	height:7px;
+	left:-7px;
+	position:absolute;
+	width:7px;
+	z-index:2;
+}
+.nav-bar .nav-bar-footer {
+	background:url("/images/overlaps.png") no-repeat scroll right bottom transparent;
+	bottom:-7px;
+	display:block;
+	font-size:1px;
+	height:7px;
+	position:absolute;
+	right:-7px;
+	width:7px;
+	z-index:2;
+}
+.nav-bar-content  {
+	background-color:#181512;
+	height:40px;
+	left:-7px;
+	position:absolute;
+	top:0;
+	width:973px;
+	overflow:hidden;
+}
+
+.navigation-item {
+	cursor:pointer;
+}
+.nav-bar-content ul.navigation-list {
+	left:100px;
+	margin:0;
+	float:right;
+}
+.nav-bar-content ul.navigation-list li {
+	/*background:url("../images/nav-separator.png") no-repeat scroll right center transparent;*/
+	background:none repeat scroll 0 0 #000;
+	display:block;
+	float:left;
+	height:20px;
+	margin:0 10px 0 0;
+	padding:10px;
+	text-align:center;
+
+}
+ul.navigation-list li:hover { background-color:InactiveCaptionText; }
+.nav-bar-content ul.navigation-list li a {
+	color:#fff;	
+}
+
+ul.navigation-list li a:hover { background-color:InactiveCaptionText; }
+
+#featured-content-slot {
+		width:300px;
+}
+#featured-content-slot .abbreviated-post{
+	height:95px;
+}
+#featured-content-slot .feed-tag{
+	border:none;
+}
+.content-list {
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+}
+.content-list .content-item {
+	border-color:#E0E2DA;
+	border-style:none solid none none;
+	display:block;
+	float:left;
+	height:400px;
+	margin:0 4px 0 0;
+	padding:0;
+	width:158px;
+}
+#content-slot-four {
+	border: none;
+	margin: 0;
+}
+.feed-tag  {
+	background-color:#E0E2DA;
+	color:#222222;
+	font-weight:bold;
+	margin:0 0 5px;
+	padding:6px;
+	text-align:center;
+}
+
+.abbreviated-featured-post-header  {
+	overflow:hidden;
+	width:300px;
+	height:235px;
+}
+.abbreviated-post-header  {
+	overflow:hidden;
+	height:150px;
+}
+.abbreviated-post  {
+
+	height:180px;
+	padding:5px 5px 0;
+}
+
+.abbreviated-post .post-name {
+	color:#999999;
+	font-size:18px;
+	font-weight:bold;
+	margin:0 0 8px;
+}
+.abbreviated-post-footer  {
+	overflow:hidden;
+	padding:0 15px 8px 0;
+	text-align:right;
+}
+.post-summary  {
+	color:#333333;
+	font-size:12px;
+	line-height:16px;
+	margin:0;
+}
+.post-summary  {
+	color:#333333;
+	font-size:12px;
+	line-height:16px;
+	margin:0;
+}
+a.more-link {
+	background-color:#E0E2DA;
+	color:#222222;
+	padding:2px 6px;
+	text-transform:lowercase;
+	text-align:center;
+}
+a.more-link:hover  {
+	background-color:#222222;
+	color:#E0E2DA;
+	text-transform:lowercase;
+}
+
+a:link, a:visited, a:active, a:hover {
+	text-decoration:none;
+}
+a.internal-link.view-post  {
+	font:18px/19px Georgia,Times New Roman;
+}
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+	root element for the scrollable.
+	when scrolling occurs this element stays still.
+*/
+.scrollable {
+
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	width: 805px;
+	height:300px;
+	float:left;
+}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accommodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+.scrollable .items {
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+}
+
+/*
+	a single item. must be floated in horizontal scrolling.
+	typically, this element is the one that *you* will style
+	the most.
+*/
+.items div {
+	float:left;
+	margin-right:10px;
+}
+.items div div {
+	margin:0;
+}
+a.browse {
+	background:url("/images/hori_large.png") no-repeat scroll 0 0 transparent;
+	cursor:pointer;
+	display:block;
+	float:left;
+	font-size:1px;
+	height:30px;
+	margin:110px 10px;
+	width:30px;
+}
+
+a.right {
+	background-position:0 -30px;
+	clear:right;
+	margin-right:0;
+}
+a.right:hover {
+	background-position:-30px -30px;
+}
+a.right:active {
+	background-position:-60px -30px;
+}
+a.left {
+	margin-left:0;
+}
+a.left:hover {
+	background-position:-30px 0;
+}
+a.left:active {
+	background-position:-60px 0;
+}
+a.disabled {
+	visibility:hidden !important;
+}
+/* styling of the container. */
+a.myPlayer {
+	display:block;
+	width:390px;
+	height:270px;
+	text-align:center;
+	margin:0 15px 15px 0;
+	float:left;
+	border:1px solid #999;
+}
+
+/* play button */
+a.myPlayer img {
+	margin-top:70px;
+	border:0px;
+}
+
+/* when container is hovered we alter the border color */
+a.myPlayer:hover {
+	border:1px solid #000;
+}
+.right-sidebar {
+	padding-top:30px;
+	width:320px;
+}
+#left-content {
+	margin:0 10px 0 0;
+	width:630px;
+	
+}
+.content-floater {
+	float:left;
+	margin:0;
+}
+#inner-content {
+	display:inline-block;
+	padding:40px 30px;
+}
+.tabbed-region {
+	height:33px;
+	margin:0;
+	position:relative;
+}
+.tabbed-region .tabs {
+	background:none repeat scroll 0 0 #181512;
+	left:-7px;
+	overflow:hidden;
+	padding-left:7px;
+	position:absolute;
+	width:100%;
+}
+.tabbed-region .tip {
+	background:url("/images/overlaps.png") no-repeat scroll left top transparent;
+	bottom:-7px;
+	display:block;
+	height:7px;
+	left:-7px;
+	overflow:hidden;
+	position:absolute;
+	width:7px;
+	z-index:-2;
+}
+.tabbed-region .tabs a.active, .tabbed-region .tabs li.navigation-item.selected a {
+	background:url("../images/tab-active.png") no-repeat scroll center bottom #3789C2;
+	
+}
+.tabbed-region .tabs a {
+	display:block;
+	float:left;
+	margin-right:0;
+	padding:0 14px;
+	text-decoration:none;
+}
+.tabbed-region .tabs a div {
+	background:none repeat scroll 0 0 transparent;
+	border:0 none;
+	color:#FFFFFF;
+	display:block;
+	float:left;
+	font-family:"Museo 500","Trebuchet MS",Arial;
+	font-size:14px;
+	font-weight:normal;
+	height:33px;
+	line-height:33px;
+	padding:0;
+	text-transform:lowercase;
+}
+.gi-post-list {
+	height:1%;
+	position:relative;
+}
+.gi-post-list .content-list li.content-item {
+	border-bottom:4px solid #F2F2F2;
+	border-right:medium none;
+	border-top:0 none;
+	clear:both;
+	height:1%;
+	overflow:hidden;
+	padding:20px 10px 10px;
+	width:600px;
+}
+.gi-post-list .abbreviated-post-header {
+	float:left;
+	margin:0 10px 0 0;
+	max-width:200px;
+	min-width:25px;
+	overflow:hidden;
+	border:none;
+}
+.gi-post-list .abbreviated-post {
+	height:1%;
+	overflow:hidden;
+	padding:0;
+	position:relative;
+	border: none;
+}
+.gi-post-list .abbreviated-post .post-summary {
+	max-height:350px;
+}
+.gi-post-list .abbreviated-post span {
+	width:100%;
+	background:#fff;
+	display:inline-block;
+	padding:4px 0;
+}
+.gi-post-list .abbreviated-post .post-meta span {
+	display:inline;
+}
+.gi-post-list .post-name {
+	margin:0 0 11px;
+	max-width:100%;
+	padding:0 70px 0 0;
+	width:auto;
+}
+.gi-post-list .post-meta {
+	clear:none;
+	color:#727070;
+	font-size:12px;
+	line-height:normal;
+	margin:0 0 6px;
+	overflow:hidden;
+	width:100%;
+}
+.gi-post-list .post-meta .post-author {
+	clear:left;
+	float:left;
+}
+.gi-post-list .post-meta div {
+	background:url("/images/post-meta-separator.png") no-repeat scroll right center transparent;
+	clear:right;
+	float:left;
+	font-size:12px;
+	margin-right:5px;
+	padding-right:10px;
+}
+.gi-post-list .post-meta .post-author .view-user-profile {
+	color:#3789C2;
+	display:inline;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+}
+.gi-post-list .post-meta .post-views {
+	background:url("/images/post-meta-separator.png") no-repeat scroll right center transparent;
+	padding-left:2px;
+}
+.CommonPollArea {
+	background:none repeat scroll 0 0 transparent;
+	border:medium none;
+	color:#333333;
+	margin:0 auto;
+	min-width:300px;
+	width:50%;
+}
+.CommonPollQuestion {
+	background:none repeat scroll 0 0 transparent;
+	border:medium none;
+	color:#666666;
+	font-family:Georgia;
+	font-size:24px;
+	padding:0;
+}
+.CommonPollContent {
+	padding: 4px;
+}
+.CommonPollAnswer {
+	padding:2px;
+}
+.CommonPollSwitchedContent {
+	width:100%;
+	margin:0 auto;
+}
+ul.CommonPollAnswerList {
+	margin:0 0 10px;
+	font-weight:bold;
+	padding:0;
+	list-style-type:none;
+}
+.CommonPollAnswerList li {
+	margin:6px 0 0;
+	padding:0;
+}
+
+.CommonPollResultGraph {
+	float:left;
+	white-space:nowrap;
+	width:100%;
+}
+
+.CommonPollResultGraph img {
+	border:none;
+	float:left;
+}
+.content-fragment-content {
+	
+}
+.CommonPollFooter {
+display:none;
+}
+.CommonPollFooter {
+background-color:#CCCCCC;
+border-color:#999999;
+border-right:0 solid #999999;
+border-style:solid;
+border-width:1px 0 0;
+font-size:80%;
+padding:2px;
+}
+.rss-feed em {
+	background-image:url("/images/icon-rss.png");
+	display:block;
+	height:14px;
+	overflow:hidden;
+	position:absolute;
+	right:0;
+	top:0;
+	width:14px;
+	margin:9px;
+}
+.user-welcome  {
+	color:#666666;
+	height:41px;
+	left:150px;
+	position:absolute;
+	right:auto;
+	top:0px;
+}
+.user-welcome .navigation-list {
+	margin:0;
+	padding:0;
+}
+.user-welcome .navigation-list li{
+	display:inline-block;
+	padding:10px;
+}
+.user-auth-link {
+	color:cornflowerBlue;
+}
+.user-aid-link {
+	color:cornflowerBlue;
+}
+.common_feature {
+	border:1px solid #999999;
+	display:block;
+	float:left;
+	height:270px;
+	margin:0 15px 15px 0;
+	text-align:center;
+	width:190px;
+}
+#sortable-events{
+	display:inline-block;
+	padding:20px;
+}
+
+
+#event, .active, #calroot {
+	-moz-border-radius:4px;		
+}
+
+#event {
+	font-family:sans-serif;	
+	background:#333 url(../../../img/gradient/h80.png);
+	height:56px;
+	padding:12px 0 12px 30px;
+	color:#ddd;
+	font-size:11px;
+	width:520px;
+	margin:0 auto;
+	-moz-box-shadow:0 0 10px #666;
+	-webkit-box-shadow:0 0 10px #666;
+}
+
+#event label {
+	float:left;
+	width:215px;
+	display:block;
+	padding:6px;
+	border:1px solid transparent;
+	margin-right:30px;	
+}
+
+#event .active {
+	background-color:#fff;
+	color:#333;
+	border:1px solid #ccc;
+	border-bottom:0;
+}
+
+.active input {
+	color:#333;
+	text-shadow:none;
+}
+
+/* date input */
+.date {		
+	background-color:transparent;
+	border:0 none;
+	cursor:pointer;
+	display:block;
+	float:left;
+	font-size:medium;
+	width:180px;
+}
+.date_field label{
+	float:left;
+	margin:0 10px 0 0;
+}
+/* date input trigger element */
+.caltrigger {
+	display:block;
+	width:30px;
+	height:32px;
+	float:left;
+	background:url(icon.jpg) no-repeat 0 0;
+	margin-top:-8px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.active .caltrigger {
+	background-position: 0 -32px;		
+}
+
+/* For the details, see: http://flowplayer.org/tools/dateinput/index.html#skinning */
+
+/* calendar root element */
+#calroot {
+	font-family:sans-serif;
+	background-color:#fff;
+	border:1px solid #ccc;
+	border-width:0 1px 1px;
+	padding-top:10px;
+	height:160px;
+	width:227px;	
+	display:none;
+	margin:0 0 0 -7px;
+	
+	-moz-border-radius-topleft:0;
+	-moz-border-radius-topright:0;	
+	-webkit-border-top-left-radius:0;
+	-webkit-border-top-right-radius:0;		
+}
+
+/* head. contains title, prev/next month controls and possible month/year selectors */
+#calhead {	
+	padding:2px 0;
+	height:22px;
+} 
+
+#caltitle {
+	font-size:14px;
+	color:#0150D1;	
+	float:left;
+	text-align:center;
+	width:160px;
+	line-height:20px;
+	text-shadow:0 1px 0 #ddd;
+}
+
+#calnext, #calprev {
+	display:block;
+	width:20px;
+	height:20px;
+	background:transparent url(prev.gif) no-repeat scroll center center;
+	float:left;
+	cursor:pointer;
+	margin-left:9px;
+}
+
+#calnext {
+	background-image:url(next.gif);
+	float:right;
+	margin-right:9px;
+}
+
+#calprev.caldisabled, #calnext.caldisabled {
+	visibility:hidden;	
+}
+
+/* year/month selector */
+#caltitle select {
+	font-size:10px;	
+}
+
+/* names of the days */
+#caldays {
+	height:14px;
+	border-bottom:1px solid #ddd;
+}
+
+#caldays span {
+	display:block;
+	float:left;
+	width:32px;
+	text-align:center;
+	font-size:11px;
+}
+
+/* container for weeks */
+#calweeks {
+	background-color:#fff;
+	margin-top:4px;
+}
+
+/* single week */
+.calweek {
+	clear:left;
+	height:22px;
+}
+
+/* single day */
+.calweek a {
+	display:block;
+	float:left;
+	width:31px;
+	height:20px;
+	text-decoration:none;
+	font-size:11px;
+	margin-left:1px;
+	text-align:center;
+	line-height:20px;
+	color:#666;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px; 		
+} 
+
+/* different states */
+.calweek a:hover, .calfocus {
+	background-color:#ddd;
+}
+
+/* sunday */
+a.calsun {
+	color:red;		
+}
+
+/* offmonth day */
+a.caloff {
+	color:#ccc;		
+}
+
+a.caloff:hover {
+	background-color:rgb(245, 245, 250);		
+}
+
+
+/* unselecteble day */
+a.caldisabled {
+	background-color:#efefef !important;
+	color:#ccc	!important;
+	cursor:default;
+}
+
+
+/* current date */
+#calcurrent {
+	background-color:#498CE2;
+	color:#fff;
+}
+
+/* today */
+#caltoday {
+	background-color:#999;
+	color:#fff;
+}
+

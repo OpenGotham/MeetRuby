@@ -1,0 +1,44 @@
+<%= form_for(@work_item) do |f| %>
+  <% if @work_item.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@work_item.errors.count, "error") %> prohibited this work_item from being saved:</h2>
+    <ul>
+    <% @work_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_hours %><br />
+    <%= f.text_field :estimated_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :low_rate %><br />
+    <%= f.text_field :low_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :high_rate %><br />
+    <%= f.text_field :high_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :rate_scale %><br />
+    <%= f.text_field :rate_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :work_license %><br />
+    <%= f.text_field :work_license %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  estimated_hours: 1
+  low_rate: 1.5
+  high_rate: 1.5
+  rate_scale: MyString
+  work_license: MyString
+
+two:
+  title: MyString
+  description: MyText
+  estimated_hours: 1
+  low_rate: 1.5
+  high_rate: 1.5
+  rate_scale: MyString
+  work_license: MyString

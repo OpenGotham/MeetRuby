@@ -1,0 +1,34 @@
+
+<% content_for :head do %>
+
+	<%= javascript_include_tag "flowplayer-3.2.0.min" %>
+	
+  <script type="text/javascript">
+  flowplayer("player", "flowplayer.commercial-3.2.1.swf", {
+    key: '#@6d5f8072051167be173',
+    // use the first frame of the video as a "splash image"
+    clip: {
+    autoPlay: false
+    }
+  });
+  </script>
+<% end %>
+
+
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @video.title %>
+</p>
+
+<a
+	href="<%= @video.url %>"
+	style="display:block;width:425px;height:300px;"
+	id="player">
+</a>
+
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

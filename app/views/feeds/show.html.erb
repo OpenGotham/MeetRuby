@@ -1,0 +1,28 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @feed.url %>
+</p>
+
+<p>
+  <b>Feed url:</b>
+  <%= @feed.feed_url %>
+</p>
+
+<p>
+  <b>Etag:</b>
+  <%= @feed.etag %>
+</p>
+
+<p>
+  <b>Last modified:</b>
+  <% @feedposts.each do |post|%>
+    post = post.post ? post.post : post 
+    <%= post.content.html_safe %>
+  <% end %>
+</p>
+
+<%= @feed.last_modified %>
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
