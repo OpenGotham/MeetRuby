@@ -16,7 +16,11 @@ Meetruby::Application.routes.draw do |map|
   end
 
   resources :events
-  resources :books
+  resources :books do
+    collection do
+      get :find
+    end
+  end
   resources :conferences
   resources :videos
   resources :posts

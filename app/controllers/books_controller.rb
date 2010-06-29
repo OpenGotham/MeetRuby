@@ -42,14 +42,14 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
-
+    @book.source = Source.new( :title => @book.title )
     respond_to do |format|
       if @book.save
         format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
+        format.xml { render :xml => @book, :status => :created, :location => @book }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @book.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -84,9 +84,14 @@ class BooksController < ApplicationController
   
   
   
-  # GET /books/1/edit
+  # GET /books/find
   def find
     # @feed_content = FeedNormalizer::FeedNormalizer.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) unless !params[:terms]
-    @feed_content = params[:terms] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) : nil
+    # @feed_content = params[:terms] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) : nil
+    if request.xhr?
+      @feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
+      # render @feed_content
+      # render :partial => "books", :locals => { :feed_content => @feed_content }
+    end
   end
 end
