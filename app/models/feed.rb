@@ -13,7 +13,7 @@ class Feed < ActiveRecord::Base
         @feed_content.entries.each do |e| 
           
           @source = Source.new( :title => e.title )
-          Post.create({:source =>  @source, :content => e.content, :author => e.author, :summary => e.description })
+          Post.create({:source =>  @source, :content => e.content, :author => e.author.strip, :summary => e.description })
          
         end
           

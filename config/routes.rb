@@ -18,7 +18,11 @@ Meetruby::Application.routes.draw do |map|
   end
 
   resources :events
-  resources :books
+  resources :books do
+    collection do
+      get :find
+    end
+  end
   resources :conferences
   resources :videos
   resources :posts
@@ -35,10 +39,9 @@ Meetruby::Application.routes.draw do |map|
   
   match 'work' => 'work_items#index'
   match 'resources' => 'sources#index'
-  match 'auth' => 'user_sessions#auth'
-  match 'login' => 'user_sessions#new'
+  match 'login' => 'user_sessions#login'
+  match 'after_login' => 'user_sessions#after_login'
   match 'logout' => 'user_sessions#destroy'
-  
   
   map.root :controller => "sources", :action => "index"  
    

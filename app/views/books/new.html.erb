@@ -128,6 +128,11 @@
     $('#book-search-field').keyup(function(event) {
     if (event.keyCode == '13') {
        alert('submit fools');
+			 var query = $('#book-search-field').val();
+			 alert(query);
+			 $.get('/books/find?query=' + query, function(data){
+				alert(data);}
+			 );
      }
     });
     </script>

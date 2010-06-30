@@ -19,10 +19,9 @@ class UserSessionsController < ApplicationController
      flash[:notice] = "Logout successful!"
      redirect_back_or_default new_user_session_url
    end
-   def auth
-       @oauth_consumer ||= OAuth::Consumer.new("ABDAE5ED0962D3332A0B546174997828", "856263601BB15FA05D1062AA082FF6CD", :site => "http://www.meetup.com/", :request_token_url => "http://www.meetup.com/oauth/request/", :authorize_path => 'authorize/', :access_token_path => 'oauth/access/', :oauth_callback => "oob", :http_method => :post)
-       @request_token = @oauth_consumer.get_request_token
-       @rt = @oauth_consumer.get_request_token
-       redirect_to @request_token.authorize_url
-    end
+   # def auth
+   #     @oauth_consumer ||= OAuth::Consumer.new("ABDAE5ED0962D3332A0B546174997828", "856263601BB15FA05D1062AA082FF6CD", :site => "http://www.meetup.com/", :request_token_url => "http://www.meetup.com/oauth/request/", :authorize_path => 'authorize/', :access_token_path => 'oauth/access/', :oauth_callback => "oob", :http_method => :post)
+   #     @request_token = @oauth_consumer.get_request_token
+   #     redirect_to @request_token.authorize_url
+   #  end
 end
