@@ -86,12 +86,19 @@ class BooksController < ApplicationController
   
   # GET /books/find
   def find
-    # @feed_content = FeedNormalizer::FeedNormalizer.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) unless !params[:terms]
-    # @feed_content = params[:terms] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) : nil
     if request.xhr?
-      @feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
-      # render @feed_content
-      # render :partial => "books", :locals => { :feed_content => @feed_content }
+      if params[:add_book]
+        book = params[:book_id] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:book_id])) : nil
+        # render :partial => "add_book", :locals => { :book => book }
+        update_page do |page|
+          page['add_book'].replace :partial  => 'add_book', :locals => {:book => book}
+        end
+        
+      else  
+        feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
+        @books = feed_content.css('entry')
+        render :partial => "books", :locals => { :books => @books }
+      end  
     end
   end
 end

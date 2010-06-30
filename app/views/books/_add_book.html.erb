@@ -1,0 +1,35 @@
+<table cellspacing="0" cellpadding="0" id="summary_content_table">
+  <tbody>
+    <tr>
+      <td id="bookinfo">
+        <div class="booktitle">
+          <h1><%= book.css('title').text %></h1>
+          <span class="subtitle"><%= book.css('dc|title')[1].text if book.css('dc|title')[1] %></span>
+        </div>
+        <div class="bookcover">
+					<%= image_tag book.css('link').first.attr('href').gsub('zoom=5','zoom=1') %>
+        </div>
+        <div class="bookinfo_sectionwrap">
+          <div>
+            <% book.css('dc|creator').each_with_index do |author, i| %>
+						 <%= "," unless i.zero? %>
+             <a class="secondary" href="http://www.google.com/search?tbs=bks:1&amp;tbo=p&amp;q=+inauthor:%22<%= author.text.split.first %>+<%= author.text.split.last %>%22"><%= author.text %></a> 
+            <% end %>
+          </div>
+          <div>
+            <%= book.css('dc|publisher').first.text %>, <%= book.css('dc|date').first.text  %> - <%= book.css('dc|format').first.text %>
+          </div>
+        </div>
+        <div id="synopsis">
+          <div id="synopsis-window" style="height: 5.2em; overflow: hidden;">
+            <div class="sa" dir="ltr" style="line-height: 1.3em;" id="synopsistext">
+							<%= book.css('dc|description').text %>
+            </div>
+          </div>
+					<%= link_to "More >>", book.css('link')[1].attr('href'), :class => "secondary", :style => "cursor: pointer; padding-top: 6px;" %> | <%= link_to_function "Add Book", "alert('Hello world!')" %>
+        </div>
+        <div class="search_box_wrapper"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>

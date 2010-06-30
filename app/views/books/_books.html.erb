@@ -1,0 +1,29 @@
+<div id="add_book">
+	<%= render :partial => "add_book", :locals => { :book => books.first }%>
+</div>
+<br/><br/><br/>
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable">   
+   
+   <!-- root element for the items -->
+   <div class="items">
+   
+      <!-- 1-5 -->
+      <% books.each_slice(5) do |a,b,c,d,e| %>
+	      <div>
+					<%= link_to image_tag(a.css('link').first.attr('href')), find_books_path(:add_book => true,:book_id=>a.css('dc|identifier').first.text), :remote => true %>
+					<%= image_tag b.css('link').first.attr('href') %>
+					<%= image_tag c.css('link').first.attr('href') %>
+					<%= image_tag d.css('link').first.attr('href') %>
+					<%= image_tag e.css('link').first.attr('href') %>
+	      </div>
+      <% end %>
+      
+			<div id="test">FOO</div>
+   </div>
+</div>
+<!-- "next page" action -->
+<a class="next browse right"></a>
