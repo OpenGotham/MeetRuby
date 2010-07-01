@@ -42,7 +42,7 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
-    @book.source = Source.new( :title => @book.title )
+    @book.source = Source.new( :title => @book.title, :official_url => params[:source_url] )
     respond_to do |format|
       if @book.save
         format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
@@ -98,4 +98,10 @@ class BooksController < ApplicationController
       end  
     end
   end
+  
+  def import_from_google
+    @book = Book.import_from_google(params[:book_data])
+    redirect_to(@book, :notice => 'Book was successfully created.')
+  end
+  
 end

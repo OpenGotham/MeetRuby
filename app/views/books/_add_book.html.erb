@@ -26,9 +26,13 @@
 							<%= book.css('dc|description').text %>
             </div>
           </div>
-					<%= link_to "More >>", book.css('link')[1].attr('href'), :class => "secondary", :style => "cursor: pointer; padding-top: 6px;" %> | <%= link_to_function "Add Book", "alert('Hello world!')" %>
+					<%= link_to "More >>", book.css('link')[1].attr('href'), :class => "secondary", :style => "cursor: pointer; padding-top: 6px;" %>
+					<br/>
+					<% form_tag(:action => "import_from_google") do %>
+						<%= hidden_field_tag "book_data", book.to_param %>
+					  <%= submit_tag "Add Book", :disable_with => "Please wait..." %>
+					<% end -%>
         </div>
-        <div class="search_box_wrapper"></div>
       </td>
     </tr>
   </tbody>

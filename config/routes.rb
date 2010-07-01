@@ -19,6 +19,7 @@ Meetruby::Application.routes.draw do |map|
   resources :books do
     collection do
       get :find
+      post :import_from_google
     end
   end
   resources :conferences
