@@ -17,7 +17,7 @@
             <% end %>
           </div>
           <div>
-            <%= book.css('dc|publisher').first.text %>, <%= book.css('dc|date').first.text  %> - <%= book.css('dc|format').first.text %>
+            <%= book.css('dc|publisher').present? ? (book.css('dc|publisher').first.text+", ") : "" %> <%= book.css('dc|date').first.text  %> - <%= book.css('dc|format').first.text %>
           </div>
         </div>
         <div id="synopsis">

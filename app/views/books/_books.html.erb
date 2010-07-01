@@ -14,15 +14,19 @@
       <!-- 1-5 -->
       <% books.each_slice(5) do |a,b,c,d,e| %>
 	      <div>
-					<%= link_to image_tag(a.css('link').first.attr('href')), find_books_path(:add_book => true,:book_id=>a.css('dc|identifier').first.text), :remote => true %>
-					<%= image_tag b.css('link').first.attr('href') %>
-					<%= image_tag c.css('link').first.attr('href') %>
-					<%= image_tag d.css('link').first.attr('href') %>
-					<%= image_tag e.css('link').first.attr('href') %>
+					<%= link_to image_tag(a.css('link').first.attr('href')), "#", :onclick => "selectBook(#{a.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<%= link_to image_tag(b.css('link').first.attr('href')), "#", :onclick => "selectBook(#{b.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<%= link_to image_tag(c.css('link').first.attr('href')), "#", :onclick => "selectBook(#{c.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<%= link_to image_tag(d.css('link').first.attr('href')), "#", :onclick => "selectBook(#{d.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<%= link_to image_tag(e.css('link').first.attr('href')), "#", :onclick => "selectBook(#{e.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<%#= image_tag a.css('link').first.attr('href') %>
+					<%#= image_tag b.css('link').first.attr('href') %>
+					<%#= image_tag c.css('link').first.attr('href') %>
+					<%#= image_tag d.css('link').first.attr('href') %>
+					<%#= image_tag e.css('link').first.attr('href') %>
 	      </div>
       <% end %>
       
-			<div id="test">FOO</div>
    </div>
 </div>
 <!-- "next page" action -->

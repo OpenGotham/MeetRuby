@@ -88,16 +88,13 @@ class BooksController < ApplicationController
   def find
     if request.xhr?
       if params[:add_book]
-        book = params[:book_id] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:book_id])) : nil
-        # render :partial => "add_book", :locals => { :book => book }
-        update_page do |page|
-          page['add_book'].replace :partial  => 'add_book', :locals => {:book => book}
-        end
-        
-      else  
+        result = params[:book_id] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:book_id])) : nil
+        book = result.css('entry').first
+        render :partial => "add_book", :locals => { :book => book }
+      else
         feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
-        @books = feed_content.css('entry')
-        render :partial => "books", :locals => { :books => @books }
+        books = feed_content.css('entry')
+        render :partial => "books", :locals => { :books => books }
       end  
     end
   end

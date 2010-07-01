@@ -26,6 +26,13 @@
       // POPULATE THE bookinfo results section with this
     }
 
+		function selectBook(book_id){
+			$.get('/books/find?add_book=true&book_id=' + book_id, function(data){
+				$("#add_book").html(data).fadeIn("fast");
+			}
+			);
+		}
+
     $('#book-search-field').keyup(function(event) {
     if (event.keyCode == '13') {
 			 var query = $('#book-search-field').val();
