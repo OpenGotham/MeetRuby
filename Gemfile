@@ -22,13 +22,27 @@ gem 'unicorn'
 gem 'rmagick',    :require => 'RMagick'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
-gem 'devise', '1.1.rc0'  
+
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'
-gem 'oauth', :require => 'oauth'
 gem 'acts-as-taggable-on'
 gem 'feed-normalizer'
 gem 'nokogiri'
+
+
+
+gem "devise", '1.1.rc2'
+gem "devise_oauth2_authenticatable" , :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
+
+
+gem 'oauth', :require => 'oauth'
+gem 'rack-oauth'
+#gem "devise_oauth_authenticatable"
+
+gem "oauth2"
+# gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
+
+
 
 # Bundle gems for certain environments:
 gem 'rspec', :group => :test

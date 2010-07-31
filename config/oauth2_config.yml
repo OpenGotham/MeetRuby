@@ -1,0 +1,22 @@
+defaults: &defaults
+    # Required.
+    client_id: cbedc4cea27fccc8f8eb
+    client_secret: 1cad02a1a716078733e7c7e5a2fa70fc3f760c66
+    authorization_server: https://github.com/login/oauth/authorize
+    authorize_path: /login/oauth/authorize
+    access_token_path: /login/oauth/access_token
+
+development:
+  <<: *defaults
+
+test: &test
+  <<: *defaults
+
+production: &production
+  <<: *defaults
+
+# staging:
+#   <<: *production
+#
+# cucumber:
+#   <<: *test

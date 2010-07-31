@@ -1,8 +1,10 @@
 Meetruby::Application.routes.draw do |map|
   devise_for :users
 
-  resources :users
+  
 
+  resources :users
+  #devise_for :users
   resources :inquiry_choices
 
   resources :inquiries
@@ -35,13 +37,13 @@ Meetruby::Application.routes.draw do |map|
   end
 
   resources :work_items
-  resources :user_sessions
+  #resources :user_sessions
   
   match 'work' => 'work_items#index'
-  match 'resources' => 'sources#index'
-  match 'login' => 'user_sessions#login'
-  match 'after_login' => 'user_sessions#after_login'
-  match 'logout' => 'user_sessions#destroy'
+  #match 'resources' => 'sources#index'
+  #match 'login' => 'user_sessions#login'
+  #match 'after_login' => 'user_sessions#after_login'
+  #match 'logout' => 'user_sessions#destroy'
   
   map.root :controller => "sources", :action => "index"  
    

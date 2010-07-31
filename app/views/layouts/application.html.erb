@@ -13,12 +13,22 @@
      <a href="/"><%= image_tag("meet_ruby_sm.png") %></a>
      <div class="user-welcome">
      <ul class="navigation-list">
+       <% if user_signed_in? %>
+       
+       <% else %>
+         <li class="navigation-item">
+           <%= link_to 'Join', new_user_registration_path, :class => "user-auth-link" %>
+         </li>
+       <% end %>
        <li class="navigation-item">
-         <%= link_to 'Join', new_user_path, :class => "user-auth-link" %>
-       </li>
-       <li class="navigation-item">
-         <%= link_to 'Sign in', login_path, :class => "user-auth-link" %>
-         
+           <% if user_signed_in? %>
+               <%= link_to "Sign out", destroy_user_session_path, :class => "user-auth-link" %>
+             <% else %>
+               <%= link_to "Sign In", new_user_session_path , :class => "user-auth-link" %>
+                <!-- </li><li class ="navigation-item"> -->
+                  <%#= link_to_oauth2 "Sign In with Github" %>
+  
+             <% end %>
       </li>
        <li class="navigation-item"><a href="/about" id="about-link" class="user-aid-link"><span></span>About</a> </li>
       </ul>
@@ -58,14 +68,6 @@
         </div>
         
       </div>
-
-      
-  
-  
-  
-  
-
-
   </div>
   <div id="main_container" class="container">
     
