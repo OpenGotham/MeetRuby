@@ -25,9 +25,10 @@
                <%= link_to "Sign out", destroy_user_session_path, :class => "user-auth-link" %>
              <% else %>
                <%= link_to "Sign In", new_user_session_path , :class => "user-auth-link" %>
-                <!-- </li><li class ="navigation-item"> -->
+                </li><li class ="navigation-item">
                   <%#= link_to_oauth2 "Sign In with Github" %>
-  
+                  <%= link_to "Sign in as User with Github", user_oauth_authorize_url(:github) %>
+                
              <% end %>
       </li>
        <li class="navigation-item"><a href="/about" id="about-link" class="user-aid-link"><span></span>About</a> </li>

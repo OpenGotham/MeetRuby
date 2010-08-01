@@ -41,9 +41,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.xml
   def create
-    
     @book = Book.new(params[:book])
-    @book.source = Source.new( :title => @book.title )
+    @book.source = Source.new( :title => @book.title, :official_url => params[:source_url] )
     respond_to do |format|
       if @book.save
         format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
@@ -87,12 +86,22 @@ class BooksController < ApplicationController
   
   # GET /books/find
   def find
-    # @feed_content = FeedNormalizer::FeedNormalizer.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) unless !params[:terms]
-    # @feed_content = params[:terms] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:terms])) : nil
     if request.xhr?
-      @feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
-      # render @feed_content
-      # render :partial => "books", :locals => { :feed_content => @feed_content }
+      if params[:add_book]
+        result = params[:book_id] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:book_id])) : nil
+        book = result.css('entry').first
+        render :partial => "add_book", :locals => { :book => book }
+      else
+        feed_content = params[:query] ? Nokogiri::XML.parse(open('http://books.google.com/books/feeds/volumes?q='+params[:query])) : nil
+        books = feed_content.css('entry')
+        render :partial => "books", :locals => { :books => books }
+      end  
     end
   end
+  
+  def import_from_google
+    @book = Book.import_from_google(params[:book_data])
+    redirect_to(@book, :notice => 'Book was successfully created.')
+  end
+  
 end

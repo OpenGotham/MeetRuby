@@ -1,0 +1,26 @@
+<div id="add_book">
+	<%= render :partial => "add_book", :locals => { :book => books.first }%>
+</div>
+<br/><br/><br/>
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable">   
+   
+   <!-- root element for the items -->
+   <div class="items">
+   
+      <!-- 1-5 -->
+      <% books.each_slice(5) do |slice| %>
+	      <div>
+					<% slice.each do |s| %>
+						<%= link_to image_tag(s.css('link').first.attr('href')), "#", :onclick => "selectBook(#{s.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
+					<% end %>
+	      </div>
+      <% end %>
+      
+   </div>
+</div>
+<!-- "next page" action -->
+<a class="next browse right"></a>

@@ -8,12 +8,11 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Meetruby
   class Application < Rails::Application
-    config.middleware.use Rack::OAuth, 
-     	    :key                 => 'ABDAE5ED0962D3332A0B546174997828', 
-          :secret              => '856263601BB15FA05D1062AA082FF6CD',
-          :consumer_site        => 'http://www.meetup.com/',
-          :redirect            => 'oauth_callback/'
-          
+    
+    config.middleware.use Rack::OAuth, :site   => 'http://www.meetup.com/', 
+                                       :key    => 'ABDAE5ED0962D3332A0B546174997828', 
+                                       :secret => '856263601BB15FA05D1062AA082FF6CD'
+                                          
           
 
     # Settings in config/environments/* take precedence over those specified here.

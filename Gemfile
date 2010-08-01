@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
-
+# gem 'rails', '3.0.0.beta4'
+gem 'rack', '1.2.1'
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
 
@@ -20,6 +20,7 @@ gem 'unicorn'
 # gem 'aws-s3', :require => 'aws/s3'
 
 gem 'rmagick',    :require => 'RMagick'
+gem 'rack-oauth'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
 
@@ -28,20 +29,12 @@ gem 'mysql'
 gem 'acts-as-taggable-on'
 gem 'feed-normalizer'
 gem 'nokogiri'
+gem 'oauth2'
+gem 'oauth'
 
+gem "devise",:git => "http://github.com/plataformatec/devise.git"
 
-
-gem "devise", '1.1.rc2'
-gem "devise_oauth2_authenticatable" , :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
-
-
-gem 'oauth', :require => 'oauth'
-gem 'rack-oauth'
-#gem "devise_oauth_authenticatable"
-
-gem "oauth2"
-# gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
-
+gem 'devise_meetup_authenticatable'
 
 
 # Bundle gems for certain environments:

@@ -1,8 +1,8 @@
 Meetruby::Application.routes.draw do |map|
   devise_for :users
 
+  #match "/meetup_callback"  => "/users/oauth#callback"
   
-
   resources :users
   #devise_for :users
   resources :inquiry_choices
@@ -23,6 +23,7 @@ Meetruby::Application.routes.draw do |map|
   resources :books do
     collection do
       get :find
+      post :import_from_google
     end
   end
   resources :conferences

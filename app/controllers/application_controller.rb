@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
-#  before_filter :authenticate_user!
+  before_filter :authenticate_user!
   
   
   #@oauth_consumer = OAuth::Consumer.new("ABDAE5ED0962D3332A0B546174997828", "856263601BB15FA05D1062AA082FF6CD", { :site=>"http://www.meetup.com", :request_token_path=>"/oauth/request/", :authorize_path => "/authorize", :access_token_url =>"/oauth/access/" })

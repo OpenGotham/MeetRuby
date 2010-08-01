@@ -4,13 +4,14 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "what@meetruby.com"
-  config.oauth2_auto_create_account = true
+  
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
   # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default), :mongoid
-  # (bson_ext recommended) and :data_mapper (experimental).
+  # Load and configure the ORM. Supports :active_record (default) and
+  # :mongoid (bson_ext recommended) by default. Other ORMs may be
+  # available as additional gems.
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
@@ -27,22 +28,25 @@ Devise.setup do |config|
   # Tell if authentication through HTTP Basic Auth is enabled. True by default.
   # config.http_authenticatable = true
 
+  # Set this to true to use Basic Auth for AJAX requests.  True by default.
+  # config.http_authenticatable_on_xhr = true
+
   # The realm used in Http Basic Authentication
   # config.http_authentication_realm = "Application"
 
   # ==> Configuration for :database_authenticatable
-  # For bcrypt, this is the cost for hashing the password and defaults to 10. If
-  # using other encryptors, it sets how many times you want the password re-encrypted.
-  config.stretches = 10
-
   # Define which will be the encryption algorithm. Devise also supports encryptors
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
   # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
   config.encryptor = :bcrypt
 
+  # For bcrypt, this is the cost for hashing the password and defaults to 10. If
+  # using other encryptors, it sets how many times you want the password re-encrypted.
+  config.stretches = 10
+
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "aeb7ae2eb44b501775056503e540d23e5dc2ada59766ebf73bceef283914f508e53cd5babb8b7f9b3f360583f2430cfe3e36640e2c146b93f5e7dda9b0b5a7b8"
+  config.pepper = "39124dabc4180f4c32db45629cbb67c56100177943293aec90b397829a55d6b8f7285fa454866d7dfdfcc0a84158ec35fc168d6edb90a0df70eb659a81ccea83"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
@@ -57,8 +61,11 @@ Devise.setup do |config|
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
 
-  # If a valid remember token can be re-used between multiple browsers.
+  # If true, a valid remember token can be re-used between multiple browsers.
   # config.remember_across_browsers = true
+
+  # If true, extends the user's remember period when remembered via cookie.
+  # config.extend_remember_period = false
 
   # ==> Configuration for :validatable
   # Range for password length
@@ -98,20 +105,12 @@ Devise.setup do |config|
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "sessions/users/new". It's turned off by default because it's slower if you
+  # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = true
 
-  # By default, devise detects the role accessed based on the url. So whenever
-  # accessing "/users/sign_in", it knows you are accessing an User. This makes
-  # routes as "/sign_in" not possible, unless you tell Devise to use the default
-  # scope, setting true below.
-  # Note that devise does not generate default routes. You also have to
-  # specify them in config/routes.rb
-  # config.use_default_scope = true
-
-  # Configure the default scope used by Devise. By default it's the first devise
-  # role declared in your routes.
+  # Configure the default scope given to Warden. By default it's the first
+  # devise role declared in your routes.
   # config.default_scope = :user
 
   # Configure sign_out behavior. 
@@ -126,18 +125,36 @@ Devise.setup do |config|
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists. Default is [:html]
   # config.navigational_formats = [:html, :iphone]
+  config.oauth :github, 'cbedc4cea27fccc8f8eb', '1cad02a1a716078733e7c7e5a2fa70fc3f760c66',
+    :site              => 'https://github.com/',
+    :authorize_path    => '/login/oauth/authorize',
+    :access_token_path => '/login/oauth/access_token',
+    :scope             => %w(user public_repo)
+    
+  config.oauth :meetup, 'ABDAE5ED0962D3332A0B546174997828', '856263601BB15FA05D1062AA082FF6CD',
+    :site => "http://www.meetup.com/", 
+    :authorize_path => "authorize/",
+    :request_token_path=>"oauth/request_token",
+    :access_token_path => "oauth/access/", 
+    :oauth_callback => "oob",
+    :scope             => "user"
+    
+    
+  # ==> OAuth2
+  # Add a new OAuth2 provider. Check the README for more information on setting
+  # up on your models and hooks.
+  # config.oauth :github, 'APP_ID', 'APP_SECRET',
+  #   :site              => 'https://github.com/',
+  #   :authorize_path    => '/login/oauth/authorize',
+  #   :access_token_path => '/login/oauth/access_token',
+  #   :scope             => %w(user public_repo)
 
   # ==> Warden configuration
-  # If you want to use other strategies, that are not (yet) supported by Devise,
-  # you can configure them inside the config.warden block. The example below
-  # allows you to setup OAuth, using http://github.com/roman/warden_oauth
+  # If you want to use other strategies, that are not supported by Devise, or
+  # change the failure app, you can configure them inside the config.warden block.
   #
   # config.warden do |manager|
-  #   manager.oauth(:twitter) do |twitter|
-  #     twitter.consumer_secret = <YOUR CONSUMER SECRET>
-  #     twitter.consumer_key  = <YOUR CONSUMER KEY>
-  #     twitter.options :site => 'http://twitter.com'
-  #   end
-  #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
+  #   manager.failure_app = AnotherApp
+  #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
 end
