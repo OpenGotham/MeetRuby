@@ -7,7 +7,7 @@
 
 <p>
   <b>Title:</b>
-  <%= @post.title.html_safe %>
+  <%= @post.title.blank? ? '' : @post.title.html_safe %>
 </p>
 
 <p>

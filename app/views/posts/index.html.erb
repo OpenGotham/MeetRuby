@@ -11,11 +11,11 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.title.html_safe  %></td>
+    <td><%= post.title.blank? ? '' : post.title.html_safe  %></td>
     <td><%= post.author.html_safe %></td>
-    <td><%= link_to 'Show', source.resourceful %></td>
-    <td><%= link_to 'Edit', edit_source_path(source) %></td>
-    <td><%= link_to 'Destroy', source, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', post.source.resourceful %></td>
+    <td><%= link_to 'Edit', edit_source_path(post.source) %></td>
+    <td><%= link_to 'Destroy', post.source, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

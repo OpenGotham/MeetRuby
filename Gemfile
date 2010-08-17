@@ -32,9 +32,9 @@ gem 'nokogiri'
 gem 'oauth2'
 gem 'oauth'
 
-gem "devise",:git => "http://github.com/plataformatec/devise.git"
+gem "devise" ,:git => "http://github.com/plataformatec/devise.git"
 
-gem 'devise_meetup_authenticatable'
+gem 'devise_meetup_authenticatable', '0.2.0'
 
 
 # Bundle gems for certain environments:

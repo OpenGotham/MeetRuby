@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :oauthable, :database_authenticatable, :registerable,
+  devise :oauthable, :meetup_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -14,13 +14,13 @@ class User < ActiveRecord::Base
   
   def oauth_github_token
       @oauth_github_token ||= self.class.oauth_access_token(:github, github_token)
-    end
+  end
   # 
   # def self.new_with_session(params, session)
   #     super.tap { |u| u.github_token = session[:user_github_oauth_token] }
   #   end
   def self.find_for_meetup_oauth(access_token, signed_in_resource=nil)
-       # Get the user email info from Github for sign up
+       # Get the user email info from meetup for sign up
        data = ActiveSupport::JSON.decode(access_token.get('/api/v2/json/user/show'))["user"]
    
    

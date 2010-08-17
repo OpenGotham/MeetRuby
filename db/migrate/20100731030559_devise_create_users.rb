@@ -6,7 +6,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.rememberable
       t.trackable
       t.string :github_token
-      t.string :meetup_token
+      t.meetup_authenticatable
+      
+      
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
