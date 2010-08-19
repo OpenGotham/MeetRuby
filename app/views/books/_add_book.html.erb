@@ -7,7 +7,7 @@
           <span class="subtitle"><%= book.css('dc|title')[1].text if book.css('dc|title')[1] %></span>
         </div>
         <div class="bookcover">
-					<%= image_tag book.css('link').first.attr('href').gsub('zoom=5','zoom=1') %>
+					<%= image_tag book.css('link').first.attr('href').gsub('zoom=5','zoom=0'), :style => "height:200px;" %>
         </div>
         <div class="bookinfo_sectionwrap">
           <div>

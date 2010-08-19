@@ -51,6 +51,9 @@ img {
 	background:url("/images/shadow.png") repeat-y scroll left top transparent;
 	padding:0 7px;
 }
+.content p {
+	margin: 10px;
+}
 .activity-stream-widget {
 	position:absolute;
 	right:300px;
@@ -114,6 +117,8 @@ position:relative;
 .bookcover {
 float:left;
 margin-right:12px;
+height:200px;
+max-width:150px;
 }
 
 #synopsis  {
@@ -475,6 +480,7 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
 /*
 	root element for the scrollable.
 	when scrolling occurs this element stays still.
@@ -487,6 +493,17 @@ div.field, div.actions {
 	width: 805px;
 	height:300px;
 	float:left;
+}
+
+
+#gbook_results{
+	height:230px;
+}
+#next_gbook{
+	margin:80px 5px;
+}
+#prev_gbook{
+	margin:80px 5px;
 }
 
 /*
@@ -890,7 +907,9 @@ padding:2px;
 .active .caltrigger {
 	background-position: 0 -32px;		
 }
-
+.hidden{
+	display:none;
+}
 /* For the details, see: http://flowplayer.org/tools/dateinput/index.html#skinning */
 
 /* calendar root element */

@@ -4,9 +4,9 @@ class CreateSources < ActiveRecord::Migration
       t.references :resourceful, :polymorphic => true
       t.string :title
       t.string :official_url
-      t.string :primary_image_url
       t.string :primary_image_uid
       t.string :audience
+      t.datetime :released
       t.timestamps
     end
   end

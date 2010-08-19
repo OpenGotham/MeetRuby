@@ -12,20 +12,16 @@
    
      <!-- root element for the items -->
      <div class="items">
-       <div>
+       <% @books.each_with_index do |book, b_i| %>
+       <% if b_i % 4 == 0 %>
+          <div>
+        <% end%>
         <!-- 1-4 -->
              <div class="common_feature"></div>
-             <div class="common_feature"></div>
-             <div class="common_feature"></div>
-             <div class="common_feature"></div>
-      </div>
-       <div>
-        <!-- 4-8 -->
-             <div class="common_feature"></div>
-             <div class="common_feature"></div>
-             <div class="common_feature"></div>
-             <div class="common_feature"></div>
-      </div>
+      <% if b_i > 1 && b_i % 4 == 0 %>
+        </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
   <!-- "next page" action -->

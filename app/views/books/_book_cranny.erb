@@ -1,0 +1,32 @@
+<div id="crany_stash" class="hidden">
+<% books.each do |book| %>
+  <div id="<%= book.css('dc|identifier').text.split(':').first %>">
+    <div class='crany_item_title'>
+      <%= book.css('title').text %>
+    </div>
+    <div class='crany_item_cover'>
+      <%= image_tag book.css('link').first.attr('href').gsub('zoom=5','zoom=0') %>
+    </div>
+    <div class="crany_item_authors">
+      <% book.css('dc|creator').each_with_index do |author, i| %>
+        
+			 <%= "," unless i.zero? %>
+       <a class="secondary" href="http://www.google.com/search?tbs=bks:1&amp;tbo=p&amp;q=+inauthor:%22<%= author.text.split.first %>+<%= author.text.split.last %>%22"><%= author.text %></a> 
+      <% end %>
+    </div>
+    <div class="crany_item_publisher">
+      <%= book.css('dc|publisher').present? ? (book.css('dc|publisher').first.text+", ") : "" %> 
+    </div>
+    <div class="crany_item_date">
+      <%= book.css('dc|date').present? ? book.css('dc|date').first.text : ""  %> 
+    </div>
+    <div class="crany_item_format">
+      <%= book.css('dc|format').first.text %>
+    </div>
+    <div class="crany_item_description">
+      
+      <%= book.css('dc|description').text %>
+    </div>
+  </div>
+<% end %>
+</div>

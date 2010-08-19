@@ -1,26 +1,28 @@
+<%= render :partial => 'book_cranny', :locals => {:books => books} %>
 <div id="add_book">
-	<%= render :partial => "add_book", :locals => { :book => books.first }%>
+	<%= render :partial => "add_book", :locals => { :book => @b = books.shift }%>
+	<% books << @b %>
 </div>
 <br/><br/><br/>
 <!-- "previous page" action -->
-<a class="prev browse left"></a>
+<a id="prev_gbook" class="prev browse left"></a>
 
 <!-- root element for scrollable -->
-<div class="scrollable">   
+<div id="gbook_results" class="scrollable">   
    
    <!-- root element for the items -->
    <div class="items">
    
       <!-- 1-5 -->
-      <% books.each_slice(5) do |slice| %>
+      <% books.each do |book| %>
 	      <div>
-					<% slice.each do |s| %>
-						<%= link_to image_tag(s.css('link').first.attr('href')), "#", :onclick => "selectBook(#{s.css('dc|identifier')[2].text.gsub('ISBN:','')});"%>
-					<% end %>
+					<%= image_tag(book.css('link').first.attr('href').gsub('zoom=5','zoom=0'), :style => 'height:150px; max-width:130px;', :alt => book.css('title').text, :ref =>  book.css('dc|identifier').text.split(':').first, :class => "gbook-listing") %>
 	      </div>
+	      
       <% end %>
       
    </div>
 </div>
 <!-- "next page" action -->
-<a class="next browse right"></a>
+<a id="next_gbook" class="next browse right"></a>
+

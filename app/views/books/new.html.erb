@@ -1,21 +1,21 @@
 <div id="inner-content" class="content-scroll">
-      
+  <span>Book Search</span>
+	<div id="book-search-bar">
+	  <fieldset classs="field-list">
+	    <ul class="field-list">
+	      <li class="field-item">
+	        <span class="field-item-input"><input type="text" id="book-search-field" class="search empty"></span>
+	      </li>
+	      <li class="field-item">
+	        <input type="button" id="search-bar-holmes-button" class="search-options" value="Book Search">
+	      </li>
+	    </ul>
+	  </fieldset>
+	</div>    
 	<div class="book_result_list_container"></div>
       
 	<br/>
-  <span>Book Search</span>
-		<div id="book-search-bar">
-		  <fieldset classs="field-list">
-		    <ul class="field-list">
-		      <li class="field-item">
-		        <span class="field-item-input"><input type="text" id="book-search-field" class="search empty"></span>
-		      </li>
-		      <li class="field-item">
-		        <input type="button" id="search-bar-holmes-button" class="search-options" value="Book Search">
-		      </li>
-		    </ul>
-		  </fieldset>
-		</div>
+    
 		<h1>New book</h1><%= render 'form' %>
     <%= link_to 'Back', books_path %>
 </div>
@@ -32,15 +32,19 @@
 			}
 			);
 		}
-
+		function gSearch(){
+		  var query = encodeURI($('#book-search-field').val());
+		  $.get('/books/find?query=' + query, function(data){
+			  $(".book_result_list_container").html(data).fadeIn("fast");
+			  $(".scrollable").scrollable();
+		  });
+		}
+    $('#search-bar-holmes-button').live('click', function(e){
+      gSearch();
+    })
     $('#book-search-field').keyup(function(event) {
-    if (event.keyCode == '13') {
-			 var query = $('#book-search-field').val();
-			 $.get('/books/find?query=' + query, function(data){
-				$(".book_result_list_container").html(data).fadeIn("fast");
-				$(".scrollable").scrollable();
-				}
-			 );
-     }
+      if (event.keyCode == '13') {
+			  gSearch();
+      }
     });
 </script>

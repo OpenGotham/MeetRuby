@@ -1,44 +1,17 @@
 source 'http://rubygems.org'
 
-# gem 'rails', '3.0.0.beta4'
-gem 'rack', '1.2.1'
-# Bundle edge Rails instead:
-gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
-
-# Use unicorn as the web server
+gem 'rails', '3.0.0.rc'
 gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-gem 'rmagick',    :require => 'RMagick'
-gem 'rack-oauth'
-gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly'
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'
 gem 'acts-as-taggable-on'
 gem 'feed-normalizer'
 gem 'nokogiri'
 gem 'oauth2'
 gem 'oauth'
-
 gem "devise" ,:git => "http://github.com/plataformatec/devise.git"
-
 gem 'devise_meetup_authenticatable', '0.2.0'
-
-
-# Bundle gems for certain environments:
+gem 'rmagick',    :require => 'RMagick'         # only if used
+gem 'rack-cache', :require => 'rack/cache'      # only if used
+gem 'dragonfly', '~>0.6.2'
 gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end

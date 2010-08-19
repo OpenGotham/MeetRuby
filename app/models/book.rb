@@ -14,11 +14,12 @@ class Book < ActiveRecord::Base
     isbn = doc.css('identifier')[2] ? doc.css('identifier')[2].text.gsub('ISBN:','') : nil
     publisher = doc.css('publisher') ? doc.css('publisher').text : nil
     source_url = doc.css('link')[1].attr('href')
-    
-    book = Book.create!( :title => title, :subtitle => subtitle, 
-                         :description => description, :isbn => isbn, :publisher => publisher)
-                         # :print_date => FEED ONLY HAS YEAR, NOT A PROPER DATE FIELD 
-    book.source = Source.new( :title => title, :official_url => source_url )
+    source = Source.new( :title => title, :official_url => source_url )
+    File.open(doc.css('identifier').text.split(':').first, 'wb') do |f|
+      f.write(open(doc.css('link').first.attr('href').gsub('zoom=5','zoom=0')).read)
+    end
+    source.primary_image = File.open(doc.css('identifier').text.split(':').first)
+    book = Book.create!( :title => title, :subtitle => subtitle, :description => description, :isbn => isbn, :publisher => publisher, :source => source, :print_date =>  Time.local(doc.css('date').first.text,"jan",1,20,15,1))
     book                    
   end
   
