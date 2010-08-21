@@ -9,3 +9,4 @@ $('.gbook-listing').live('click', function(e){
   e.preventDefault();
   return false;
 });
+

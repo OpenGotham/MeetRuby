@@ -1,0 +1,49 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  gravatar_id: MyString
+  plan_name: MyString
+  plan_collaborators: 1
+  plan_space: 1
+  plan_private_repos: 1
+  on_github_since: 2010-08-20 14:29:43
+  location: MyString
+  blog: MyString
+  public_gist_count: 1
+  public_repo_count: 1
+  collaborators: 1
+  disk_usage: 1
+  following_count: 1
+  git_hub_id: 1
+  type: MyString
+  private_gist_count: 1
+  owned_private_repo_count: 1
+  followers_count: 1
+  total_private_repo_count: 1
+  login: MyString
+  email: MyString
+
+two:
+  user_id: 1
+  gravatar_id: MyString
+  plan_name: MyString
+  plan_collaborators: 1
+  plan_space: 1
+  plan_private_repos: 1
+  on_github_since: 2010-08-20 14:29:43
+  location: MyString
+  blog: MyString
+  public_gist_count: 1
+  public_repo_count: 1
+  collaborators: 1
+  disk_usage: 1
+  following_count: 1
+  git_hub_id: 1
+  type: MyString
+  private_gist_count: 1
+  owned_private_repo_count: 1
+  followers_count: 1
+  total_private_repo_count: 1
+  login: MyString
+  email: MyString

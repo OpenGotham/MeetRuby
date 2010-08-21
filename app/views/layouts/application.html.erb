@@ -3,7 +3,7 @@
 <head>
   <title>Meetruby</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquerytools", "application" %>
+  <%= javascript_include_tag "jquery", "jquerytools", "application" %>
   	<%= yield(:head) %>
   <%= csrf_meta_tag %>
 </head>
@@ -78,16 +78,12 @@
       <div class="nav-bar-content">
 
         <ul class="navigation-list">
-                <li class="inprint navigation-item">
-                    <div class="active">
-                      <a href="/resources">Resources</a>
-                    </div>
-                </li>
-                <li class="local navigation-item"><div class="active"><a href="/">Local 151</a></div></li>
-                <li class="events navigation-item"><div class="active"><a href="/events">Events</a></div></li>
-                <li class="work navigation-item"><div class="active"><a href="/work"> Work</a></div></li>
-                <li class="certify navigation-item"><div class="active"><a href="/">Certification</a></div></li>
-            </ul>
+          
+            <%= nav_select "Events", events_path, "nav_events" %>
+            <%= nav_select "Books", books_path, "nav_books" %>
+            <%= nav_select "Rubyists", profiles_path, "nav_profiles" %>
+         
+        </ul>
       </div>
       <div class="nav-bar-footer"></div>
     </div>

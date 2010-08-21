@@ -1,33 +1,56 @@
-<h1>Listing profiles</h1>
+<div class="inner-content">
+  <div id="scrollable_list">
+    <a class="prev browse left"></a>
+    <div class="items">
+      <% @profiles.each_with_index do |profile, b_i| %>
+       
+         <% if b_i % 4 == 0 %>
+         <% indic = b_i %>
+            <div>
+         <% end%>
+              <div class="common_feature">
+                <%#= link_to  profile.user.github_users.blank? ? image_tag('default_user_card.jpg') :  image_tag("http://www.gravatar.com/avatar/#{profile.user.github_users.first.gravatar_id}", :style => 'width:100%'), profile_path(profile) %>
+                <%= link_to image_tag('default_user_card.jpg', :style => 'width:100%;'), profile_path(profile) %>
+              </div>
+          <% if indic && b_i == indic %>
+            </div>
+          <% end %>
+       <% end %>
+    </div>
+  </div>
+ </div>
+<div class="inner-content">
+  <h1>Listing profiles</h1>
 
-<table>
-  <tr>
-    <th>Full name</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Birthday</th>
-    <th>Overview</th>
-    <th>Featured image url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table>
+    <tr>
+      <th>Full name</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Birthday</th>
+      <th>Overview</th>
+      <th>Featured image url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @profiles.each do |profile| %>
-  <tr>
-    <td><%= profile.full_name %></td>
-    <td><%= profile.first_name %></td>
-    <td><%= profile.last_name %></td>
-    <td><%= profile.birthday %></td>
-    <td><%= profile.overview %></td>
-    <td><%= profile.featured_image_url %></td>
-    <td><%= link_to 'Show', profile %></td>
-    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-    <td><%= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.full_name %></td>
+      <td><%= profile.first_name %></td>
+      <td><%= profile.last_name %></td>
+      <td><%= profile.birthday %></td>
+      <td><%= profile.overview %></td>
+      <td><%#= profile.featured_image_url %></td>
+      <td><%= link_to 'Show', profile %></td>
+      <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+      <td><%= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Profile', new_profile_path %>
+  <%= link_to 'New Profile', new_profile_path %>
+</div>

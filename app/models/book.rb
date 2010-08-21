@@ -14,6 +14,10 @@ class Book < ActiveRecord::Base
     isbn = doc.css('identifier')[2] ? doc.css('identifier')[2].text.gsub('ISBN:','') : nil
     publisher = doc.css('publisher') ? doc.css('publisher').text : nil
     source_url = doc.css('link')[1].attr('href')
+    authors = doc.css('creator')
+    authors.each do |author|
+      
+    end
     source = Source.new( :title => title, :official_url => source_url )
     File.open(doc.css('identifier').text.split(':').first, 'wb') do |f|
       f.write(open(doc.css('link').first.attr('href').gsub('zoom=5','zoom=0')).read)

@@ -1,41 +1,28 @@
+<div class="inner-content">
+    
+    <div class="left-content content-floater">
+      <h1><%= @book.title %></h1>
+      <%= @book.description %>
+    </div>
+    <div class="right-sidebar content-floater book_detail">
+      <div class="thumbnail">
+        <%= image_tag @book.source.primary_image.url, :style => 'width:100%' %>
+      </div>
+      <div class="extras"> 
+            <%= link_to 'gbooks', @book.source.official_url%>
+            <span class="separator"> • </span>
+            <%= link_to 'Edit', edit_book_path(@book) %> 
+            <span class="separator"> • </span>
+      </div>
+      <div class="stats">
+        <%= @book.edition %>
+        <%= @book.print_date %><br/>
+        <%= @book.publisher %>
+      </div>
+    </div>
+
+</div>
+
 <p class="notice"><%= notice %></p>
-<%= image_tag @book.source.primary_image.url %>
-
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @book.description %>
-</p>
-
-<p>
-  <b>Print date:</b>
-  <%= @book.print_date %>
-</p>
-
-<p>
-  <b>Edition:</b>
-  <%= @book.edition %>
-</p>
-
-<p>
-  <b>Publisher:</b>
-  <%= @book.publisher %>
-</p>
-
-<p>
-  <b>Official url:</b>
-  <%= @book.source.official_url %>
-</p>
-
-<p>
-  <b>Source code url:</b>
-  <%= @book.source_code_url %>
-</p>
 
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

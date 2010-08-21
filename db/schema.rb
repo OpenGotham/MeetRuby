@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100731030559) do
+ActiveRecord::Schema.define(:version => 20100821035757) do
 
   create_table "authors", :force => true do |t|
     t.integer  "source_id"
@@ -59,6 +59,48 @@ ActiveRecord::Schema.define(:version => 20100731030559) do
     t.datetime "updated_at"
   end
 
+  create_table "github_repos", :force => true do |t|
+    t.integer  "github_user_id"
+    t.integer  "forks"
+    t.string   "name"
+    t.integer  "watchers"
+    t.boolean  "private"
+    t.string   "url"
+    t.boolean  "fork"
+    t.string   "owner"
+    t.string   "homepage"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "github_users", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "gravatar_id"
+    t.string   "plan_name"
+    t.integer  "plan_collaborators"
+    t.integer  "plan_space"
+    t.integer  "plan_private_repos"
+    t.datetime "on_github_since"
+    t.string   "location"
+    t.string   "blog"
+    t.integer  "public_gist_count"
+    t.integer  "public_repo_count"
+    t.integer  "collaborators"
+    t.integer  "disk_usage"
+    t.integer  "following_count"
+    t.integer  "git_hub_id"
+    t.string   "type"
+    t.integer  "private_gist_count"
+    t.integer  "owned_private_repo_count"
+    t.integer  "followers_count"
+    t.integer  "total_private_repo_count"
+    t.string   "login"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "inquiries", :force => true do |t|
     t.string   "question"
     t.string   "audience"
@@ -83,6 +125,26 @@ ActiveRecord::Schema.define(:version => 20100731030559) do
     t.float    "ranking"
     t.string   "release"
     t.date     "release_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetup_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "meetup_event_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "event_url"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meetup_events", ["meetup_event_id"], :name => "index_meetup_events_on_meetup_event_id", :unique => true
+
+  create_table "meetup_users", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "api_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

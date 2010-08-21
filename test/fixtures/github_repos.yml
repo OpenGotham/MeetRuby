@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  github_user_id: 1
+  forks: 1
+  name: MyString
+  watchers: 1
+  private: false
+  url: MyString
+  fork: false
+  owner: MyString
+  homepage: MyString
+  description: MyText
+
+two:
+  github_user_id: 1
+  forks: 1
+  name: MyString
+  watchers: 1
+  private: false
+  url: MyString
+  fork: false
+  owner: MyString
+  homepage: MyString
+  description: MyText

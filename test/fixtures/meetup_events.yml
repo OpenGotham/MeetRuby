@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_id: 1
+  meetup_event_id: 1
+  name: MyString
+  description: MyText
+  event_url: MyString
+  time: 2010-08-20 23:57:57
+
+two:
+  event_id: 1
+  meetup_event_id: 1
+  name: MyString
+  description: MyText
+  event_url: MyString
+  time: 2010-08-20 23:57:57

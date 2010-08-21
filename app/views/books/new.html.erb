@@ -1,4 +1,4 @@
-<div id="inner-content" class="content-scroll">
+<div class="inner-content">
   <span>Book Search</span>
 	<div id="book-search-bar">
 	  <fieldset classs="field-list">
@@ -12,12 +12,14 @@
 	    </ul>
 	  </fieldset>
 	</div>    
-	<div class="book_result_list_container"></div>
-      
+	<div id="gbook_results" class="book_result_list_container">
+	 
+	</div>
 	<br/>
     
 		<h1>New book</h1><%= render 'form' %>
     <%= link_to 'Back', books_path %>
+  
 </div>
     
 <script language="Javascript" type="text/javascript">

@@ -1,34 +1,30 @@
+<div class="inner-content">
+    
+    <div class="left-content content-floater">
+      <h1><%= @profile.full_name %></h1>
+      <%#= @book.description %>
+    </div>
+    <div class="right-sidebar content-floater book_detail">
+      <div class="thumbnail">
+        <%= image_tag "http://www.gravatar.com/avatar/#{@profile.user.github_users.first.gravatar_id}", :style => 'width:100%' unless @profile.user.github_users.blank? %>
+      </div>
+      <div class="extras"> 
+            <!-- <%#= link_to 'gbooks', @book.source.official_url%>
+                  <span class="separator"> • </span>
+                  <%#= link_to 'Edit', edit_book_path(@book) %> 
+                  <span class="separator"> • </span> -->
+      </div>
+      <div class="stats">
+      
+      </div>
+    </div>
+
+</div>
+
 <p class="notice"><%= notice %></p>
 
-<p>
-  <b>Full name:</b>
-  <%= @profile.full_name %>
-</p>
 
-<p>
-  <b>First name:</b>
-  <%= @profile.first_name %>
-</p>
 
-<p>
-  <b>Last name:</b>
-  <%= @profile.last_name %>
-</p>
-
-<p>
-  <b>Birthday:</b>
-  <%= @profile.birthday %>
-</p>
-
-<p>
-  <b>Overview:</b>
-  <%= @profile.overview %>
-</p>
-
-<p>
-  <b>Featured image url:</b>
-  <%= @profile.featured_image_url %>
-</p>
 
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

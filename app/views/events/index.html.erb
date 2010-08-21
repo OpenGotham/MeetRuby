@@ -1,30 +1,38 @@
-<div id="inner-content" class="content-scroll">
-  <!-- "previous page" action -->
-  <a class="prev browse left"></a>
+<% content_for :head do %>
+  <%= javascript_include_tag "fullcalendar.js" %>
+<script type="text/javascript">
+  $(document).ready(function() { 
+    $('#calendar').fullCalendar({ })
+  });
+  </script>
+<% end %>
 
-  <!-- root element for scrollable -->
-  <div class="scrollable">   
-   
-     <!-- root element for the items -->
-     <div class="items">
-       <div>
-        <!-- 1-4 -->
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-      </div>
-       <div>
-        <!-- 4-8 -->
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-             <div class="event_feature"></div>
-      </div>
-    </div>
+<div class="inner-content">
+<div id="scrollable_list">
+  <a class="prev browse left"></a>
+  <div class="scrollable">
+    <div class="items">
+      <% @events.each_with_index do |event, b_i| %>
+     
+         <% if b_i % 4 == 0 %>
+         <% indic = b_i %>
+            <div>
+         <% end%>
+              <div class="common_feature">
+                <%= link_to image_tag(event.source.primary_image.url, :style => 'width:100%'), event_path(event) %>
+              </div>
+          <% if indic && b_i == indic %>
+            </div>
+          <% end %>
+       <% end %>
   </div>
-  <!-- "next page" action -->
+  </div>
   <a class="next browse right"></a>
+</div>
+ 
+  <div class="inner-content">
+  <div id="calendar" >
+    
   </div>
   <div id="sortable-events" class="content-scroll">
   
@@ -48,10 +56,10 @@
     <tr>
       <td><%= event.title %></td>
       <td><%= event.description %></td>
-      <td><%= event.start_date %></td>
-      <td><%= event.end_date %></td>
-      <td><%= event.official_url %></td>
-      <td><%= event.topic %></td>
+      <td><%= event.start_time %></td>
+      <td><%= event.end_time %></td>
+      <td><%= event.source.official_url %></td>
+      <td><%#= event.topic %></td>
       <td><%= event.organization %></td>
       <td><%= link_to 'Show', event %></td>
       <td><%= link_to 'Edit', edit_event_path(event) %></td>
@@ -63,12 +71,15 @@
   <br />
 
   <%= link_to 'New Event', new_event_path %>
+  </div>
 </div>
 <script type="text/javascript">
+
 $(function() {
 
 	// initialize scrollable
 	$(".scrollable").scrollable();
-
+ 
+  
 });
 </script>

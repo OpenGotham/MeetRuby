@@ -1,9 +1,9 @@
 
 
+<div class="inner-content">
 
 
-
-<div id="inner-content" class="content-scroll">
+<div id="scrollable_book_list">
   <!-- "previous page" action -->
   <a class="prev browse left"></a>
 
@@ -17,7 +17,7 @@
           <div>
         <% end%>
         <!-- 1-4 -->
-             <div class="common_feature"></div>
+             <div class="common_feature"><%= link_to image_tag(book.source.primary_image.url, :style => 'height:100%;'), book_path(book) %></div>
       <% if b_i > 1 && b_i % 4 == 0 %>
         </div>
       <% end %>
@@ -25,6 +25,8 @@
     </div>
   </div>
   <!-- "next page" action -->
+  
+  </div>
   <a class="next browse right"></a>
   </div>
   <div id="sortable-books" class="content-scroll">
@@ -57,7 +59,7 @@
    </table>
 
    <br />
-
+</div>
    <%= link_to 'New Book', new_book_path %>
 <script type="text/javascript">
 $(function() {

@@ -2,6 +2,9 @@ class CreateProfiles < ActiveRecord::Migration
   def self.up
     create_table :profiles do |t|
       t.integer :user_id
+      t.string :primary_image_uid
+      t.string :gravatar_id
+      t.string :display_img
       t.string :full_name
       t.string :first_name
       t.string :last_name
