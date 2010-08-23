@@ -14,9 +14,15 @@
    <div class="items">
    
       <!-- 1-5 -->
-      <% books.each do |book| %>
+      <% books.each_slice(5) do |slice| %>
+      
+      <%# books.each do |book| %>
 	      <div>
-					<%= image_tag(book.css('link').first.attr('href').gsub('zoom=5','zoom=0'), :style => 'height:150px; max-width:130px;', :alt => book.css('title').text, :ref =>  book.css('dc|identifier').text.split(':').first, :class => "gbook-listing") %>
+	        <% slice.each do |book| %>
+	        <div class="item">
+  					<%= image_tag(book.css('link').first.attr('href').gsub('zoom=5','zoom=0'), :style => 'height:150px; max-width:150px;', :alt => book.css('title').text, :ref =>  book.css('dc|identifier').text.split(':').first, :class => "gbook-listing") %>
+					</div>
+					<% end %>
 	      </div>
 	      
       <% end %>

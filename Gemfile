@@ -5,6 +5,7 @@ gem 'rails', '3.0.0.rc'
 gem 'unicorn'
 gem 'mysql'
 gem 'acts-as-taggable-on'
+gem 'ancestry'
 gem 'feed-normalizer'
 gem 'nokogiri'
 gem 'oauth2'
@@ -19,10 +20,16 @@ gem 'activequeue'
 # until 1.9 use system timer
 gem 'system_timer'
 gem 'typhoeus'
-
-gem 'rspec-rails'
-gem 'cucumber-rails'
 gem 'capybara'
+gem 'database_cleaner'
+gem 'cucumber-rails'
+gem 'cucumber'
+gem 'rspec-rails'
+gem 'autotest'
+gem 'machinist', '>= 2.0.0.beta1'
+gem 'spork'
+gem 'launchy'
+gem 'pickle'
 
 
 gem 'rspec', :group => :test

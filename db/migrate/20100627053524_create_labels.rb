@@ -9,6 +9,7 @@ class CreateLabels < ActiveRecord::Migration
       t.date :release_date
       t.timestamps
     end
+    add_index :labels, :title, :unique => true
   end
 
   def self.down

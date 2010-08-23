@@ -27,6 +27,8 @@ class CreateGithubUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :github_users, :email,                :unique => true
+    add_index :github_users, :login
   end
 
   def self.down

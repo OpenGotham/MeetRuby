@@ -3,8 +3,8 @@
 <head>
   <title>Meetruby</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery", "jquerytools", "application" %>
-  	<%= yield(:head) %>
+  <%= javascript_include_tag "jquery", "jquerytools", "flowplayer-3.2.0.min", "application" %>
+   <%= yield(:head) %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -60,12 +60,12 @@
                           <span class="field-item-input">
                               <input type="text" id="header-search-field" value="search" class="search empty">
                           </span>
-                          	</li>
+                           </li>
                           <li class="field-item">
                           <input type="button" id="search-bar-holmes-button" class="search-options" value="Search">
-          						</li>
+           </li>
                 </ul>
-          </fieldset>  
+          </fieldset>
         </div>
         
       </div>

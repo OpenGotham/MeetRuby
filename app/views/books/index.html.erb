@@ -9,24 +9,23 @@
 
   <!-- root element for scrollable -->
   <div class="scrollable">   
-   
-     <!-- root element for the items -->
-     <div class="items">
-       <% @books.each_with_index do |book, b_i| %>
-       <% if b_i % 4 == 0 %>
-          <div>
-        <% end%>
-        <!-- 1-4 -->
-             <div class="common_feature"><%= link_to image_tag(book.source.primary_image.url, :style => 'height:100%;'), book_path(book) %></div>
-      <% if b_i > 1 && b_i % 4 == 0 %>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
+    <div class="items">
+
+        <% @books.each_slice(5) do |slice| %>
+  	      <div>
+  	        <% slice.each do |book| %>
+  	        <div class="item common_feature">
+                <%= link_to image_tag(book.source.primary_image.url, :style => 'width:100%'), book_path(book) %>
+            </div>
+  					
+  					<% end %>
+  	      </div>
+
+        <% end %>
+     
   </div>
-  <!-- "next page" action -->
+  </div>
   
-  </div>
   <a class="next browse right"></a>
   </div>
   <div id="sortable-books" class="content-scroll">
@@ -53,12 +52,13 @@
        <td><%= book.publisher %></td>
        <td><%= link_to 'Show', book %></td>
        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-       <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-     </tr>
-   <% end %>
-   </table>
+       <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 
-   <br />
+  <br />
 </div>
    <%= link_to 'New Book', new_book_path %>
 <script type="text/javascript">

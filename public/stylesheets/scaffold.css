@@ -72,7 +72,7 @@ img {
 
 
 .book_result_list_container{
-	display:inline-block;
+	display:block;
 }
 
 #book-search-bar fieldset{
@@ -488,10 +488,10 @@ div.field, div.actions {
 	height:270px;
 }
 #scrollable_book_list{
-	height:270px;
+	height:200px;
 }
 #scrollable_book_list .scrollable{
-	height:270px;
+	height:200px;
 }
 
 /*
@@ -545,10 +545,10 @@ div.field, div.actions {
 */
 .items div {
 	float:left;
-	margin-right:10px;
+	margin:0px;
 }
 .items div div {
-	margin:0;
+	margin:10px 25px;
 }
 a.browse {
 	background:url("/images/hori_large.png") no-repeat scroll 0 0 transparent;
@@ -588,8 +588,8 @@ a.disabled {
 /* styling of the container. */
 a.myPlayer {
 	display:block;
-	width:390px;
-	height:270px;
+	width:300px;
+	height:235px;
 	text-align:center;
 	margin:0 15px 15px 0;
 	float:left;
@@ -856,10 +856,10 @@ padding:2px;
 	border:1px solid #999999;
 	display:block;
 	float:left;
-	height:270px;
+	height:240px;
 	margin:0 15px 15px 0;
 	text-align:center;
-	width:190px;
+	width:160px;
 }
 #sortable-events{
 	display:inline-block;
@@ -972,7 +972,9 @@ padding:2px;
 	line-height:20px;
 	text-shadow:0 1px 0 #ddd;
 }
-
+#new_book{
+	
+}
 #calnext, #calprev {
 	display:block;
 	width:20px;

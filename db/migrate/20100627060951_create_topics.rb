@@ -12,6 +12,8 @@ class CreateTopics < ActiveRecord::Migration
       
       t.timestamps
     end
+    add_index :topics, :name, :unique => true
+     
   end
 
   def self.down

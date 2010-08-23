@@ -28,7 +28,7 @@
           </div>
 					<%= link_to "More >>", book.css('link')[1].attr('href'), :class => "secondary", :style => "cursor: pointer; padding-top: 6px;" %>
 					<br/>
-					<% form_tag(:action => "import_from_google") do %>
+					<% form_tag(:action => "import_from_google", :id => "book_submission_form") do %>
 						<%= hidden_field_tag "book_data", book.to_param %>
 					  <%= submit_tag "Add Book", :disable_with => "Please wait..." %>
 					<% end -%>

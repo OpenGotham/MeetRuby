@@ -11,6 +11,7 @@ class CreateWorkItems < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :work_items, :title, :unique => true
   end
 
   def self.down

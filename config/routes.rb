@@ -1,4 +1,6 @@
 Meetruby::Application.routes.draw do |map|
+  resources :categories
+
   devise_for :users
 
   #match "/meetup_callback"  => "/users/oauth#callback"

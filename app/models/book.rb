@@ -16,7 +16,7 @@ class Book < ActiveRecord::Base
     source_url = doc.css('link')[1].attr('href')
     authors = doc.css('creator')
     authors.each do |author|
-      
+      Profile.new :full_name => author.text
     end
     source = Source.new( :title => title, :official_url => source_url )
     File.open(doc.css('identifier').text.split(':').first, 'wb') do |f|

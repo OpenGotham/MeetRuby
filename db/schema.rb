@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100821035757) do
+ActiveRecord::Schema.define(:version => 20100821082821) do
 
   create_table "authors", :force => true do |t|
     t.integer  "source_id"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(:version => 20100821035757) do
     t.string   "edition"
     t.string   "publisher"
     t.string   "source_code_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ancestry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_sources", :id => false, :force => true do |t|
+    t.integer  "source_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

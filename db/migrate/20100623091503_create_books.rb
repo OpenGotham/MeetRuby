@@ -12,6 +12,8 @@ class CreateBooks < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :books, :title, :unique => true
+    add_index :isbn, :title, :unique => true
   end
 
   def self.down

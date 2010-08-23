@@ -10,6 +10,8 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :events, :title, :unique => true
+    add_index :events, :organization
   end
 
   def self.down

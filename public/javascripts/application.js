@@ -6,7 +6,12 @@ $('.gbook-listing').live('click', function(e){
 	$('.bookinfo_sectionwrap div:last').html($('#'+$(this).attr('ref')+' .crany_item_authors').html());
 	$('.bookinfo_sectionwrap div:first').html($('#'+$(this).attr('ref')+' .crany_item_publisher').text()+', '+$('#'+$(this).attr('ref')+' .crany_item_date').text()+' - '+$('#'+$(this).attr('ref')+' .crany_item_format').text());
 	$('#synopsistext').text($('#'+$(this).attr('ref')+' .crany_item_description').html());
+	$('#book_data').val($('#'+$(this).attr('ref')+' .crany_item_raw').html())
   e.preventDefault();
   return false;
 });
 
+function loadDataForSlide(slideNum) {
+// SS.move_to_slide(slideNum);
+slideNumber = slideNum;
+};

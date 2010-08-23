@@ -1,23 +1,14 @@
 
-<% content_for :head do %>
-
-	<%= javascript_include_tag "flowplayer-3.2.0.min" %>
-	
-
-<% end %>
 
 <div id="inner-content" class="content-scroll">
 
 
-  <!-- "previous page" action -->
   <a class="prev browse left"></a>
 
-  <!-- root element for scrollable -->
   <div id="scrollable_video_list" class="scrollable">   
    
-     <!-- root element for the items -->
      <div class="items">
-        <!-- 1-2 -->
+      
              <div>
                 <a class="myPlayer" 
                 
@@ -32,7 +23,7 @@
             </div>
       </div>
   </div>
-  <!-- "next page" action -->
+
   <a class="next browse right"></a>
 
   <% @videos.each do |video| %>
@@ -43,21 +34,6 @@
       <%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %>
 
   <% end %>
-<script type="text/javascript">
-flowplayer("a.myPlayer", "flowplayer.commercial-3.2.1.swf", {
-  key: '#@6d5f8072051167be173',
-  // use the first frame of the video as a "splash image"
-  clip: {
-  autoPlay: false
-  }
-});
-// execute your scripts when the DOM is ready. this is mostly a good habit
-$(function() {
 
-	// initialize scrollable
-	$(".scrollable").scrollable();
-
-});
-</script>
 <%#= link_to 'New Video', new_video_path %>
 </div>

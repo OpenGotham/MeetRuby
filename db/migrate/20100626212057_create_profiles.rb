@@ -18,6 +18,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :facebook_url
       t.timestamps
     end
+    add_index :profiles, :full_name, :unique => true
   end
 
   def self.down

@@ -22,7 +22,7 @@ module ApplicationHelper
       
       state =  url_match || controller_match ? 'active' : 'default'
       # innerds = 
-      content_tag(:li,link_to(content_tag(:div, name) ,  state == 'default' ? url : '#'), :id => id, :class => state+' ui-state-'+state+' ui-corner-all navigation-item')
+      content_tag(:li,link_to(content_tag(:div, name) , url_match ? '#' : url ), :id => id, :class => state+' ui-state-'+state+' ui-corner-all navigation-item')
       # content_tag(:a, :href => url, innerds)
      
       

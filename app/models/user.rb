@@ -48,19 +48,19 @@ class User < ActiveRecord::Base
      plan = data["plan"]
      logger.info("user data "+data.to_yaml)
 
-     # Link the account if an e-mail already exists in the database
-     # or a signed_in_resource, which is already in session was given.
+    # Link the account if an e-mail already exists in the database
+    # or a signed_in_resource, which is already in session was given.
     if user = signed_in_resource || User.find_by_email(data["email"])
-       user.update_attribute(:github_token, access_token.token)
-       if user.github_users.blank?
-          user.github_users.create(:gravatar_id => data["gravatar_id"], :plan_name => plan["name"], :plan_collaborators => plan["collaborators"], :plan_space => plan["space"], :plan_private_repos => plan["private_repos"], :on_github_since => data["created_at"], :location => data["location"], :blog => data["blog"], :public_gist_count => data["public_gist_count"], :public_repo_count => data["public_repo_count"], :collaborators => data["collaborators"], :disk_usage => data["disk_usage"], :following_count => data["following_count"], :git_hub_id => data["git_hub_id"], :type => data["type"], :private_gist_count => data["private_gist_count"], :owned_private_repo_count => data["owned_private_repo_count"], :followers_count => data["followers_count"], :total_private_repo_count => data["total_private_repo_count"], :login => data["login"], :email => data["email"])
-        end
-        if user.profile.blank?
-          user.profile = Profile.create(:full_name => data["name"], :github_url => data["login"])
-        end
-        logger.info(access_token.to_yaml)
-        logger.info(data.to_yaml)
-        user
+     user.update_attribute(:github_token, access_token.token)
+      if user.github_users.blank?
+        user.github_users.create(:gravatar_id => data["gravatar_id"], :plan_name => plan["name"], :plan_collaborators => plan["collaborators"], :plan_space => plan["space"], :plan_private_repos => plan["private_repos"], :on_github_since => data["created_at"], :location => data["location"], :blog => data["blog"], :public_gist_count => data["public_gist_count"], :public_repo_count => data["public_repo_count"], :collaborators => data["collaborators"], :disk_usage => data["disk_usage"], :following_count => data["following_count"], :git_hub_id => data["git_hub_id"], :type => data["type"], :private_gist_count => data["private_gist_count"], :owned_private_repo_count => data["owned_private_repo_count"], :followers_count => data["followers_count"], :total_private_repo_count => data["total_private_repo_count"], :login => data["login"], :email => data["email"])
+      end
+      if user.profile.blank?
+        user.profile = Profile.create(:full_name => data["name"], :github_url => data["login"])
+      end
+      logger.info(access_token.to_yaml)
+      logger.info(data.to_yaml)
+      user
      else
        logger.info(access_token.to_yaml)
        logger.info(data.to_yaml)

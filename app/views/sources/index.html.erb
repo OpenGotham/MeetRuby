@@ -1,22 +1,31 @@
+<% content_for :head do %>
 
+	<%= javascript_include_tag "flowplayer-3.2.0.min" %>
+	
+
+<% end %>
 <div id="featured">
   <ul class="content-list">
     <li id="featured-content-slot" class="content-item">
       <div class="feed-tag">
-        Learn Ruby
+        Explore Ruby
       </div>
       <div class="abbreviated-featured-post-header">
-        <img src="/images/whys_poignant_guide.jpg" width="300">
+        <a class="myPlayer" 
+        
+        	href="/video/219_active_model.flv">
+        </a>
+       
       </div>
       <div class="abbreviated-post">
         <h4 class="post-name">
           <a href="/" class="internal-link view-post">
-            July Cover Revealed: Infamous 2
+            RailsCast 219: Active Model
           </a>
         </h4>
         <div class="post-summary">
           <p>
-            Infamous 2 awaits you in our July issue, along with a hefty dose of features, previews, and reviews.
+            Active Model has taken away most of your feelings of dread.
           </p>
         </div>
       </div>
@@ -126,7 +135,7 @@
           
             <li class="content-item">
               <div class="abbreviated-post-header">
-                <%= link_to fp.primary_image_url ? image_tag(fp.primary_image_url, :style => "max-width: 200px;", :src => "#{  }") : '',  fp %>
+                <%= link_to fp.primary_image ? image_tag(fp.primary_image_url, :style => "max-width: 200px;", :src => "#{  }") : '',  fp %>
                 </div>
                 <div class="abbreviated-post">
                   <h4 class="post-name">
@@ -213,3 +222,12 @@
         </div>
   </div>
 </div>
+<script type="text/javascript">
+flowplayer("a.myPlayer", "flowplayer.commercial-3.2.1.swf", {
+  key: '#@6d5f8072051167be173',
+  // use the first frame of the video as a "splash image"
+  clip: {
+  autoPlay: false
+  }
+});
+</script>

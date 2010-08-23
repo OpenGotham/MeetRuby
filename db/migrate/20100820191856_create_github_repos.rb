@@ -14,6 +14,7 @@ class CreateGithubRepos < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :github_repos, :name, :unique => true
   end
 
   def self.down

@@ -1,6 +1,9 @@
 <div id="crany_stash" class="hidden">
 <% books.each do |book| %>
   <div id="<%= book.css('dc|identifier').text.split(':').first %>">
+    <div class='crany_item_raw'>
+      <%= book.to_param.html_safe %>
+    </div>
     <div class='crany_item_title'>
       <%= book.css('title').text %>
     </div>

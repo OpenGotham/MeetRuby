@@ -6,7 +6,10 @@ class SourcesController < ApplicationController
     #Source.order("created_at DESC").limit(10).order("rand()")
     #@feed_posts = Source.order("rand()").all(:conditions => {:resourceful_type => 'Post'},:limit => 10)
     #@feed_posts = Source.all(:conditions => {:resourceful_type => 'Post'})
-    @feed_posts = Source.all(:conditions => {:resourceful_type => 'Post'},:limit => 10)
+    #@feed_posts = Source.where("resourceful_type = 'Post'").order("released DESC")
+    # .all.where("resourceful_type = 'Post'").order("released ASC").limit(10)
+    @feed_posts = Source.all(:conditions => {:resourceful_type => 'Post'}, :order => "released DESC")
+    #@feed_posts = Source.all(:conditions => {:resourceful_type => 'Post'}, :order => "released DESC",:limit => 10)
     @video_feature = Source.where("resourceful_type = 'Video'").limit(1).order("rand()").first
     respond_to do |format|
       format.html # index.html.erb

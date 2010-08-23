@@ -9,6 +9,7 @@ class CreateSources < ActiveRecord::Migration
       t.datetime :released
       t.timestamps
     end
+    add_index :sources, :title, :unique => true
   end
 
   def self.down
