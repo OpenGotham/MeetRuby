@@ -1,4 +1,7 @@
+
+
 Meetruby::Application.routes.draw do |map|
+ 
   resources :categories
 
   devise_for :users
@@ -47,7 +50,9 @@ Meetruby::Application.routes.draw do |map|
   #match 'login' => 'user_sessions#login'
   #match 'after_login' => 'user_sessions#after_login'
   #match 'logout' => 'user_sessions#destroy'
-  
+  authenticate :user do
+    mount Resque::Server.new, :at => "/resque"
+  end
   map.root :controller => "sources", :action => "index"  
    
   # resources :events
@@ -110,7 +115,7 @@ Meetruby::Application.routes.draw do |map|
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
- 
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

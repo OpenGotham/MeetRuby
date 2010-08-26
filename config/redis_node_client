@@ -1,0 +1,49 @@
+var sys = require('sys'),
+   http = require('http'),
+  redis = require("./redisclient");
+
+var queuedRes = {}
+var counter = 1;
+
+http.createServer(function (req, res) {
+  pushOnQueue(req, res);
+}).listen(8000);
+
+function pushOnQueue(req, res) {
+  requestNumber = counter++;
+
+  message = JSON.stringify({
+    "class": "RequestProcessor",
+    "args": [ {"node_id": requestNumber, "url": req.url} ]
+  });
+
+  client.rpush('resque:queue:requests', message);
+  queuedRes[requestNumber] = res
+}
+
+var client = new redis.Client();
+client.connect(function() {
+  popFromQueue();
+});
+
+function popFromQueue() {
+  client.lpop('responses', handleResponse);
+}
+
+function handleResponse(err, result) {
+  if (result == null) {
+    setTimeout(function() { popFromQueue(); }, 100);
+  } else {
+    json = JSON.parse(result);
+    requestNumber = json.node_id;
+    body = unescape(json.body);
+    res = queuedRes[requestNumber];
+    res.writeHeader(200, {'Content-Type': 'text/plain'});
+    res.write(body);
+    res.close();
+    delete queuedRes[requestNumber];
+    popFromQueue();
+  }
+}
+
+sys.puts('Server running at http://127.0.0.1:8000/');
