@@ -13,7 +13,26 @@ task :uname do
 end
 
 
+namespace :bundler do
+  task :create_symlink, :roles => :app do
+      shared_dir = File.join(shared_path, 'bundle')
+      release_dir = File.join(current_release, '.bundle')
+      run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
+    end
 
+    task :bundle_new_release, :roles => :app do
+      bundler.create_symlink
+      run "cd #{release_path} && bundle install --without test"
+    end
+
+    task :lock, :roles => :app do
+      run "cd #{current_release} && bundle lock;"
+    end
+
+    task :unlock, :roles => :app do
+      run "cd #{current_release} && bundle unlock;"
+    end
+end
   namespace :resque do
     desc 'Stop the god resque process'
     task :restart, :roles => :db do
@@ -157,23 +176,35 @@ end
 
   namespace :deploy do
     task :start, :roles => :app do
+     
       sudo "/etc/init.d/unicorn /var/www/orderberry start #{ENV['DEPLOY']}"
     end
     task :stop, :roles => :app do
-       sudo "/etc/init.d/unicorn /var/www/orderberry stop #{ENV['DEPLOY']}"
+      sudo "thor unicorn stop '#{release_path}'"
     end
     task :restart, :roles => :app do
-
-       sudo "/etc/init.d/unicorn /var/www/orderberry restart #{ENV['DEPLOY']}"
+      sudo "thor unicorn restart '#{release_path}'"
     end
     task :gentle_restart, :roles => :app do
-       sudo "/etc/init.d/unicorn /var/www/orderberry upgrade #{ENV['DEPLOY']}"
+      sudo "thor unicorn upgrade '#{release_path}'"
+    end
+    task :addworker, :roles => :app do
+      sudo "thor unicorn addworker '#{release_path}'"
+    end
+    task :reduce, :roles => :app do
+      sudo "thor unicorn reduce '#{release_path}'"
+    end
+    
+    desc "Symlink shared sockets on each release."
+    task :symlink_shared_sockets do
+      run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
     end
     
 
    
   end
 
-
+  after "deploy:update_code", "deploy:symlink_shared_sockets"
+  after "deploy:symlink_shared_sockets","bundler:bundle_new_release"
   after "deploy", "deploy:cleanup"
   after "deploy:migrations", "deploy:cleanup"
