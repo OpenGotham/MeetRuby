@@ -1,8 +1,8 @@
 set :application, 'meetruby'
 set :domain, 'staging.meetruby.com'
 default_run_options[:pty] = true
-server 'staging.meetruby.com', :app, :web, :db
-role :appservers, 'staging.meetruby.com','staging.meetruby.com','staging.meetruby.com'
+server 'ogln001', :app, :web, :db
+role :appservers,  'ogln001','ogln001','ogln001'
 
 set :scm, :git
 set :repository, 'git@github.com:OpenGotham/MeetRuby.git'
