@@ -24,6 +24,16 @@ test: &test
   pool: 5
   timeout: 5000
 
+staging:
+  adapter: mysql
+  database: meetruby_staging
+  username: meetruby
+  password: 88salt99
+  host:     localhost
+  socket: /var/run/mysqld/mysqld.sock
+  pool: 5
+  timeout: 5000
+
 production:
   adapter: sqlite3
   database: db/production.sqlite3

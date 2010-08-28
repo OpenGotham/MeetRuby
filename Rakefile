@@ -6,4 +6,7 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'resque/tasks'
 
+task "resque:setup" => :environment
+
+
 Meetruby::Application.load_tasks
