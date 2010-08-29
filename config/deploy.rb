@@ -177,7 +177,7 @@ end
   namespace :deploy do
     task :start, :roles => :app do
      
-      sudo "/etc/init.d/unicorn /var/www/orderberry start #{ENV['DEPLOY']}"
+      sudo "/etc/init.d/unicorn /var/www/meetruby start #{ENV['DEPLOY']}"
     end
     task :stop, :roles => :app do
       sudo "thor unicorn stop '#{release_path}'"

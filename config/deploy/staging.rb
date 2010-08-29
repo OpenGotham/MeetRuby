@@ -19,4 +19,4 @@ set :ssh_options, { :port => 2223, :forward_agent => true }
 
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
-set :deploy_to, '/var/www/orderberry'
+set :deploy_to, '/var/www/meetruby'
