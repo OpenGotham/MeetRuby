@@ -205,6 +205,6 @@ end
   end
 
   after "deploy:update_code", "deploy:symlink_shared_sockets"
-  after "deploy:symlink_shared_sockets","bundler:bundle_new_release"
+  #after "deploy:symlink_shared_sockets","bundler:bundle_new_release"
   after "deploy", "deploy:cleanup"
   after "deploy:migrations", "deploy:cleanup"
