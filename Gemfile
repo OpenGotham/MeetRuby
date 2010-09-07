@@ -13,7 +13,7 @@ gem 'feed-normalizer'
 gem 'nokogiri'
 gem 'oauth2'
 gem 'oauth'
-gem "devise" ,:git => "http://github.com/plataformatec/devise.git"
+gem "devise"# ,:git => "http://github.com/plataformatec/devise.git"
 gem 'devise_meetup_authenticatable', '0.2.0'
 gem 'rmagick',    :require => 'RMagick'         # only if used
 gem 'rack-cache', :require => 'rack/cache'      # only if used
