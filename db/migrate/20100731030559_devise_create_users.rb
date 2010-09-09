@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.rememberable
       t.trackable
       t.string :github_token
-      t.meetup_authenticatable
+      #t.meetup_authenticatable
       
       
       # t.confirmable
