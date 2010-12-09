@@ -1,15 +1,19 @@
+Meetruby::Application.routes.draw do
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  # devise_for :users, :omniauthable, :omniauth_providers => [:github], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  # Sample of regular route:
+  #   match 'products/:id' => 'catalog#view'
+  match 'work' => 'work_items#index'
+  # Keep in mind you can assign values other than :controller and :action
 
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
 
-Meetruby::Application.routes.draw do |map|
- 
-  resources :categories
-
-  devise_for :users
-
-  #match "/meetup_callback"  => "/users/oauth#callback"
-  
-  resources :users
-  #devise_for :users
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   resources :products
   resources :inquiry_choices
 
   resources :inquiries
@@ -43,51 +47,16 @@ Meetruby::Application.routes.draw do |map|
   end
 
   resources :work_items
-  #resources :user_sessions
-  
-  match 'work' => 'work_items#index'
-  #match 'resources' => 'sources#index'
-  #match 'login' => 'user_sessions#login'
-  #match 'after_login' => 'user_sessions#after_login'
-  #match 'logout' => 'user_sessions#destroy'
-  authenticate :user do
-    mount Resque::Server.new, :at => "/resque"
-  end
-  map.root :controller => "sources", :action => "index"  
-   
-  # resources :events
-  # 
-  # resources :books
-  # 
-  # resources :conferences
-  # 
-  # resources :videos
-  # 
-  # resources :posts
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
   
   # Sample resource route with options:
   #   resources :products do
   #     member do
-  #       get :short
-  #       post :toggle
+  #       get 'short'
+  #       post 'toggle'
   #     end
   #
   #     collection do
-  #       get :sold
+  #       get 'sold'
   #     end
   #   end
 
@@ -101,7 +70,7 @@ Meetruby::Application.routes.draw do |map|
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get :recent, :on => :collection
+  #       get 'recent', :on => :collection
   #     end
   #   end
 
@@ -111,11 +80,11 @@ Meetruby::Application.routes.draw do |map|
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-
+  root :to => "sources#index"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

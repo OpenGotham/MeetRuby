@@ -29,15 +29,16 @@ blogs = [
   ]
   
   
-  podcasts = [{:audio => "", :transcribed => "feed://feeds.feedburner.com/rubyonrails_transcript"}, "http://podcast.rubyonrails.org/"]
+podcasts = [
+  {:audio => "", :transcribed => "feed://feeds.feedburner.com/rubyonrails_transcript"}, "http://podcast.rubyonrails.org/"
+  
+]
 "http://www.engineyard.com/videos/demos",
 "http://www.engineyard.com/videos/tutorials",
 "http://www.engineyard.com/videos/keynotes",
 "http://feeds.feedburner.com/thechangelog"
 
 screencasts = ["http://www.engineyard.com/videos", "feed://feeds.feedburner.com/railscasts", "feed://video.google.com/videosearch?q=ruby+screencast&hl=en&client=safari&rls=en&prmd=v&output=rss"]
-
-/bin/bash: line 37: /Users/matthewjording/.rvm/bin/textmate_ruby: No such file or directory
 
 events = "http://www.engineyard.com/developer/events,"
 

@@ -2,16 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.is_a?(User)
-      profiles_url
-    else
-      super
-    end
-  end
+  # def after_sign_in_path_for(resource_or_scope)
+  #     if resource_or_scope.is_a?(User)
+  #       root_url
+  #     else
+  #       super
+  #     end
+  #   end
   
   #@oauth_consumer = OAuth::Consumer.new("ABDAE5ED0962D3332A0B546174997828", "856263601BB15FA05D1062AA082FF6CD", { :site=>"http://www.meetup.com", :request_token_path=>"/oauth/request/", :authorize_path => "/authorize", :access_token_url =>"/oauth/access/" })
-  private
+  # private
     # def current_user_session
     #       return @current_user_session if defined?(@current_user_session)
     #       @current_user_session = UserSession.find

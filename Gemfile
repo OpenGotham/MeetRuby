@@ -10,11 +10,8 @@ gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'feed-normalizer'
 gem 'nokogiri'
-gem 'oauth2'
-# gem 'oauth'
-gem "devise", :git => "http://github.com/plataformatec/devise.git", :branch => "v1.2.oauth"
-# gem "devise" 
-# gem 'devise_meetup_authenticatable', '0.2.0'
+gem "devise", '1.2.rc'
+gem "oa-oauth", :require => "omniauth/oauth"
 gem 'rmagick',    :require => 'RMagick'         # only if used
 gem 'rack-cache', :require => 'rack/cache'      # only if used
 gem 'dragonfly'

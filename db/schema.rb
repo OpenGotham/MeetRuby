@@ -1,8 +1,8 @@
-# This file is auto-generated from the current state of the database. Instead 
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your 
+# Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100821082821) do
+ActiveRecord::Schema.define(:version => 20101209113115) do
 
   create_table "authors", :force => true do |t|
     t.integer  "source_id"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "books", ["isbn"], :name => "index_books_on_isbn", :unique => true
+  add_index "books", ["title"], :name => "index_books_on_title", :unique => true
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -64,6 +67,9 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["organization"], :name => "index_events_on_organization"
+  add_index "events", ["title"], :name => "index_events_on_title", :unique => true
+
   create_table "feeds", :force => true do |t|
     t.string   "title"
     t.string   "url"
@@ -89,6 +95,8 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "updated_at"
   end
 
+  add_index "github_repos", ["name"], :name => "index_github_repos_on_name", :unique => true
+
   create_table "github_users", :force => true do |t|
     t.integer  "user_id"
     t.string   "gravatar_id"
@@ -106,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.integer  "following_count"
     t.integer  "git_hub_id"
     t.string   "type"
+    t.string   "company"
     t.integer  "private_gist_count"
     t.integer  "owned_private_repo_count"
     t.integer  "followers_count"
@@ -115,6 +124,9 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "github_users", ["email"], :name => "index_github_users_on_email", :unique => true
+  add_index "github_users", ["login"], :name => "index_github_users_on_login"
 
   create_table "inquiries", :force => true do |t|
     t.string   "question"
@@ -143,6 +155,8 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "labels", ["title"], :name => "index_labels_on_title", :unique => true
 
   create_table "meetup_events", :force => true do |t|
     t.integer  "event_id"
@@ -190,6 +204,9 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
+    t.string   "primary_image_uid"
+    t.string   "gravatar_id"
+    t.string   "display_img"
     t.string   "full_name"
     t.string   "first_name"
     t.string   "last_name"
@@ -204,6 +221,8 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "profiles", ["full_name"], :name => "index_profiles_on_full_name", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -226,6 +245,8 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sources", ["title"], :name => "index_sources_on_title", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -257,27 +278,20 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "updated_at"
   end
 
+  add_index "topics", ["name"], :name => "index_topics_on_name", :unique => true
+
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "github_token"
-    t.integer  "meetup_uid",           :limit => 8
-    t.string   "meetup_token",         :limit => 149
+    t.integer  "roles_mask"
+    t.string   "fullname"
+    t.string   "username"
+    t.string   "email",                             :default => "", :null => false
+    t.string   "encrypted_password", :limit => 128, :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "name"
@@ -314,5 +328,7 @@ ActiveRecord::Schema.define(:version => 20100821082821) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "work_items", ["title"], :name => "index_work_items_on_title", :unique => true
 
 end

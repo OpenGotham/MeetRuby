@@ -2,8 +2,15 @@
 <html>
 <head>
   <title>Meetruby</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag 'scaffold', :media => 'screen, projection'  %>
+  
+  <%= stylesheet_link_tag 'cougar_skin', :media => 'screen, projection'  %>
+  
+  <%= stylesheet_link_tag 'compiled/screen', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'compiled/print', :media => 'print' %>
+
   <%= javascript_include_tag "jquery", "jquerytools", "flowplayer-3.2.0.min", "application" %>
+  
    <%= yield(:head) %>
   <%= csrf_meta_tag %>
 </head>
@@ -17,17 +24,18 @@
        
        <% else %>
          <li class="navigation-item">
-           <%= link_to 'Join', new_user_registration_path, :class => "user-auth-link" %>
+           <%#= link_to 'Join', new_user_registration_path, :class => "user-auth-link" %>
          </li>
        <% end %>
        <li class="navigation-item">
            <% if user_signed_in? %>
-               <%= link_to "Sign out", destroy_user_session_path, :class => "user-auth-link" %>
+               <%#= link_to "Sign out", destroy_user_session_path, :class => "user-auth-link" %>
              <% else %>
-               <%= link_to "Sign In", new_user_session_path , :class => "user-auth-link" %>
+               <%#= link_to "Sign In", new_user_session_path , :class => "user-auth-link" %>
                 </li><li class ="navigation-item">
                   <%#= link_to_oauth2 "Sign In with Github" %>
-                  <%= link_to "Sign in as User with Github", user_oauth_authorize_url(:github) %>
+                  <%#= link_to "Sign in as User with Github", user_oauth_authorize_url(:github) %>
+                  <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
                 <%#= link_to "Sign in as User with meetup", Devise.meetup_client.get_request_token.authorize_url %>
              <% end %>
       </li>
