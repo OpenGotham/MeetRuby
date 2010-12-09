@@ -12,13 +12,13 @@ module Meetruby
     # config.middleware.use Rack::OAuth, :site   => 'http://www.meetup.com/', 
     #                                    :key    => 'ABDAE5ED0962D3332A0B546174997828', 
     #                                    :secret => '856263601BB15FA05D1062AA082FF6CD'
-    middleware = Rails.respond_to?(:application) ? Rails.application.middleware : ActionController::Dispatcher.middleware
-    middleware.insert_after Rack::Lock, Dragonfly::Middleware, :images
-    middleware.insert_before Dragonfly::Middleware, Rack::Cache, {
-      :verbose     => true,
-      :metastore   => "file:#{Rails.root}/tmp/dragonfly/cache/meta",
-      :entitystore => "file:#{Rails.root}/tmp/dragonfly/cache/body"
-    }
+    # middleware = Rails.respond_to?(:application) ? Rails.application.middleware : ActionController::Dispatcher.middleware
+    # middleware.insert_after Rack::Lock, Dragonfly::Middleware, :images
+    # middleware.insert_before Dragonfly::Middleware, Rack::Cache, {
+    #   :verbose     => true,
+    #   :metastore   => "file:#{Rails.root}/tmp/dragonfly/cache/meta",
+    #   :entitystore => "file:#{Rails.root}/tmp/dragonfly/cache/body"
+    # }
                                           
           
     #config.middleware.insert_after 'Rack::Lock', 'Dragonfly::Middleware', :images
