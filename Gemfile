@@ -5,6 +5,7 @@ gem 'json'
 gem 'god'
 gem 'unicorn'
 gem 'mysql'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "resque", :require => "resque/server"
 gem 'acts-as-taggable-on'
 gem 'ancestry'
