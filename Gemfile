@@ -31,6 +31,6 @@ gem 'launchy'
 gem 'pickle'
 gem 'googlecharts'
 gem 'metric_fu'
-
+gem 'ruby-prof'
 gem 'rspec', :group => :test
 gem 'hirb'
