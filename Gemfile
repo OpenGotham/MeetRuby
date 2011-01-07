@@ -29,7 +29,8 @@ gem 'machinist'
 gem 'spork'
 gem 'launchy'
 gem 'pickle'
-
+gem 'googlecharts'
+gem 'metric_fu'
 
 gem 'rspec', :group => :test
 gem 'hirb'
