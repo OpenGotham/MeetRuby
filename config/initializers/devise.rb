@@ -6,7 +6,7 @@ Devise.setup do |config|
   config.mailer_sender = "what@meetruby.com"
   # Configure the class responsible to send e-mails.
   config.mailer = "Devise::Mailer"
-  config.omniauth :github, 'cbedc4cea27fccc8f8eb', '1cad02a1a716078733e7c7e5a2fa70fc3f760c66', :scope => 'user,public_repo'
+  # config.omniauth :github, 'cbedc4cea27fccc8f8eb', '1cad02a1a716078733e7c7e5a2fa70fc3f760c66', :scope => 'user,public_repo'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and

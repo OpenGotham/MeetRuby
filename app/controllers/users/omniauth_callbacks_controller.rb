@@ -17,7 +17,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #     end
   #   end
     def meetup
-      
+      logger.error("in meetup of callback controller")
+      data = env["omniauth.auth"]
+      @user = User.find_for_meetup_oauth(data, current_user)
+      if @user.persisted?
+            flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Github"
+            logger.info("**user success: #{@user.to_yaml}")
+            sign_in_and_redirect @user, :event => :authentication
+          else
+            logger.info("**user failure: #{env["omniauth.auth"]}")
+            session["devise.meetup_data"] = env["omniauth.auth"]
+            redirect_to new_user_registration_url
+          end
+      # session["devise.github_data"] = data["extra"]["user_hash"]
+      # render :json => data
     end
   
   
@@ -32,7 +45,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             sign_in_and_redirect @user, :event => :authentication
           else
             logger.info("**user failure: #{env["omniauth.auth"]}")
-            session["devise.facebook_data"] = env["omniauth.auth"]
+            session["devise.github_data"] = env["omniauth.auth"]
             redirect_to new_user_registration_url
           end
       # session["devise.github_data"] = data["extra"]["user_hash"]
