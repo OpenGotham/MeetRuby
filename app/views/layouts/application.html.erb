@@ -36,7 +36,7 @@
                   <%#= link_to_oauth2 "Sign In with Github" %>
                   <%#= link_to "Sign in as User with Github", user_oauth_authorize_url(:github) %>
                   <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
-                <%#= link_to "Sign in as User with meetup", Devise.meetup_client.get_request_token.authorize_url %>
+                <%= link_to "Sign in as User with meetup", user_omniauth_authorize_path(:meetup) %>
              <% end %>
       </li>
        <li class="navigation-item"><a href="/about" id="about-link" class="user-aid-link"><span></span>About</a> </li>
