@@ -1,8 +1,8 @@
 Meetruby::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  # devise_for :users, :omniauthable, :omniauth_providers => [:github], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   match 'work' => 'work_items#index'

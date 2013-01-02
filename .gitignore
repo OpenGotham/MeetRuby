@@ -9,6 +9,8 @@ config/s3_credentials.yml
 *.cache
 *.log
 *.pid
+*.mov
+*.m4v
 .DS_Store
 db/cstore/**
 db/schema.rb

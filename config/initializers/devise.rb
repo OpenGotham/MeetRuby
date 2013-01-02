@@ -6,8 +6,8 @@ Devise.setup do |config|
   config.mailer_sender = "what@meetruby.com"
   # Configure the class responsible to send e-mails.
   config.mailer = "Devise::Mailer"
-  # config.omniauth :github, 'cbedc4cea27fccc8f8eb', '1cad02a1a716078733e7c7e5a2fa70fc3f760c66', :scope => 'user,public_repo'
-
+  config.omniauth :github, 'cbedc4cea27fccc8f8eb', '1cad02a1a716078733e7c7e5a2fa70fc3f760c66', :scope => 'user,public_repo'
+  config.omniauth :meetup, 'ABDAE5ED0962D3332A0B546174997828', '856263601BB15FA05D1062AA082FF6CD'
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
@@ -170,4 +170,26 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  class Hash
+      def recursive_find_by_key(key)
+        # Create a stack of hashes to search through for the needle which
+        # is initially this hash
+        stack = [ self ]
+
+        # So long as there are more haystacks to search...
+        while (to_search = stack.pop)
+          # ...keep searching for this particular key...
+          to_search.each do |k, v|
+            # ...and return the corresponding value if it is found.
+            return v if (k == key)
+
+            # If this value can be recursively searched...
+            if (v.respond_to?(:recursive_find_by_key))
+              # ...push that on to the list of places to search.
+              stack << v
+            end
+          end
+        end
+      end
+    end
 end
