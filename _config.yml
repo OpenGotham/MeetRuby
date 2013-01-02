@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Open Gotham
-tagline: NYC startup journal
+title : Meet Ruby
+tagline: Ruby Resources for the untrained and seasoned Rubyist
 author :
   name : Matthew Jording
   email : mjording@gmail.com
@@ -27,7 +27,7 @@ author :
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 # CNAME opengotham.com
-production_url : http://opengotham.github.com
+production_url : http://opengotham.github.com/MeetRuby
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -56,7 +56,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : false
+  BASE_PATH : http://opengotham.github.com/meetruby
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
